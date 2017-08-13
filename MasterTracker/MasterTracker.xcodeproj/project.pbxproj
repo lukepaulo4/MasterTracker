@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003FEBA91F40DEA6006B3BA9 /* EmailSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003FEBA81F40DEA6006B3BA9 /* EmailSetupViewController.m */; };
+		003FEBAC1F40DEE1006B3BA9 /* PasswordSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003FEBAB1F40DEE1006B3BA9 /* PasswordSetupViewController.m */; };
+		003FEBAF1F40DEFB006B3BA9 /* ExistingAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003FEBAE1F40DEFB006B3BA9 /* ExistingAccountViewController.m */; };
+		003FEBB21F40DF10006B3BA9 /* ForgotPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003FEBB11F40DF10006B3BA9 /* ForgotPasswordViewController.m */; };
 		00A862CA1F3FB73C008B81FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862C91F3FB73C008B81FF /* main.m */; };
 		00A862CD1F3FB73C008B81FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862CC1F3FB73C008B81FF /* AppDelegate.m */; };
 		00A862D01F3FB73C008B81FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862CF1F3FB73C008B81FF /* ViewController.m */; };
@@ -35,6 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		003FEBA71F40DEA6006B3BA9 /* EmailSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailSetupViewController.h; sourceTree = "<group>"; };
+		003FEBA81F40DEA6006B3BA9 /* EmailSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailSetupViewController.m; sourceTree = "<group>"; };
+		003FEBAA1F40DEE1006B3BA9 /* PasswordSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordSetupViewController.h; sourceTree = "<group>"; };
+		003FEBAB1F40DEE1006B3BA9 /* PasswordSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordSetupViewController.m; sourceTree = "<group>"; };
+		003FEBAD1F40DEFB006B3BA9 /* ExistingAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExistingAccountViewController.h; sourceTree = "<group>"; };
+		003FEBAE1F40DEFB006B3BA9 /* ExistingAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExistingAccountViewController.m; sourceTree = "<group>"; };
+		003FEBB01F40DF0F006B3BA9 /* ForgotPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordViewController.h; sourceTree = "<group>"; };
+		003FEBB11F40DF10006B3BA9 /* ForgotPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordViewController.m; sourceTree = "<group>"; };
 		00A862C51F3FB73C008B81FF /* MasterTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A862C91F3FB73C008B81FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00A862CB1F3FB73C008B81FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +113,14 @@
 		00A862C71F3FB73C008B81FF /* MasterTracker */ = {
 			isa = PBXGroup;
 			children = (
+				003FEBA71F40DEA6006B3BA9 /* EmailSetupViewController.h */,
+				003FEBA81F40DEA6006B3BA9 /* EmailSetupViewController.m */,
+				003FEBAA1F40DEE1006B3BA9 /* PasswordSetupViewController.h */,
+				003FEBAB1F40DEE1006B3BA9 /* PasswordSetupViewController.m */,
+				003FEBAD1F40DEFB006B3BA9 /* ExistingAccountViewController.h */,
+				003FEBAE1F40DEFB006B3BA9 /* ExistingAccountViewController.m */,
+				003FEBB01F40DF0F006B3BA9 /* ForgotPasswordViewController.h */,
+				003FEBB11F40DF10006B3BA9 /* ForgotPasswordViewController.m */,
 				00A862CB1F3FB73C008B81FF /* AppDelegate.h */,
 				00A862CC1F3FB73C008B81FF /* AppDelegate.m */,
 				00A862CE1F3FB73C008B81FF /* ViewController.h */,
@@ -277,8 +297,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A862D01F3FB73C008B81FF /* ViewController.m in Sources */,
+				003FEBA91F40DEA6006B3BA9 /* EmailSetupViewController.m in Sources */,
 				00A862CD1F3FB73C008B81FF /* AppDelegate.m in Sources */,
 				00A862CA1F3FB73C008B81FF /* main.m in Sources */,
+				003FEBB21F40DF10006B3BA9 /* ForgotPasswordViewController.m in Sources */,
+				003FEBAC1F40DEE1006B3BA9 /* PasswordSetupViewController.m in Sources */,
+				003FEBAF1F40DEFB006B3BA9 /* ExistingAccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +542,7 @@
 				00A862F41F3FB73C008B81FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00A862F51F3FB73C008B81FF /* Build configuration list for PBXNativeTarget "MasterTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +551,7 @@
 				00A862F71F3FB73C008B81FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00A862F81F3FB73C008B81FF /* Build configuration list for PBXNativeTarget "MasterTrackerUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +560,7 @@
 				00A862FA1F3FB73C008B81FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
