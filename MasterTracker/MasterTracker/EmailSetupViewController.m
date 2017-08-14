@@ -10,11 +10,6 @@
 
 @interface EmailSetupViewController ()
 
-@property (strong, nonatomic) IBOutlet UITextField *enterEmailTextField;
-@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *recLabel;
-
-
 @end
 
 @implementation EmailSetupViewController
@@ -30,8 +25,15 @@
 }
 
 - (IBAction)emailTextFieldDidChange:(UITextField *)sender {
+    if ([self.enterEmailTextField.text length] > 0) {
+    }
 }
 
+- (IBAction)nextButtonPressed:(id)sender {
+}
+
+- (IBAction)haveAccButtonPressed:(id)sender {
+}
 
 
 - (IBAction)tapGestureDidFire:(UITapGestureRecognizer *)sender {
