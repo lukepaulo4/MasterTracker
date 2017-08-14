@@ -24,6 +24,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)passwordTextFieldDidChange:(UITextField *)sender {
+    if ([self.passwordTextField.text length] > 0) {
+    }
+}
+
+- (IBAction)retypePasswordTextFieldDidChange:(UITextField *)sender {
+    if ([self.retypePasswordTextField.text length] > 0) {
+    }
+}
+
+- (IBAction)finishButtonPressed:(id)sender {
+}
+
+- (IBAction)tapGestureDidFire:(UITapGestureRecognizer *)sender {
+}
+
+
+
 /*
 #pragma mark - Navigation
 
