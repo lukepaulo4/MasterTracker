@@ -10,4 +10,10 @@
 
 @interface ForgotPasswordViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *forgotPassLabel;
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
+
+- (void)enterButtonPressed:(UIButton *)sender;
+- (void)backButtonPressed:(UIButton *)sender;
+
 @end

@@ -24,6 +24,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)emailTextFieldDidChange:(UITextField *)sender {
+    if ([self.emailTextField.text length] > 0) {
+    }
+}
+
+- (IBAction)enterButtonPressed:(UIButton *)sender {
+}
+
+- (IBAction)backButtonPressed:(UIButton *)sender {
+}
+
+- (IBAction)tapGestureDidFire:(UITapGestureRecognizer *)sender {
+}
+
+
 /*
 #pragma mark - Navigation
 
