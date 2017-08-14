@@ -69,6 +69,7 @@
                                 </state>
                                 <connections>
                                     <action selector="haveAccButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qtt-Y3-YQs"/>
+                                    <segue destination="b4b-Ia-LqJ" kind="show" id="HU5-nx-crC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -92,6 +93,91 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+        <!--Existing Account View Controller-->
+        <scene sceneID="vex-75-r6J">
+            <objects>
+                <viewController id="b4b-Ia-LqJ" customClass="ExistingAccountViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="peD-uG-2WM"/>
+                        <viewControllerLayoutGuide type="bottom" id="7xx-Bh-q26"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D5L-Pe-Gfx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Already have an account? Great! Enter your info below." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNG-Eg-cI6">
+                                <rect key="frame" x="16" y="28" width="343" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zsr-n0-Tcr">
+                                <rect key="frame" x="153" y="162" width="69" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="ENTER">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="enterButtonPressed:" destination="b4b-Ia-LqJ" eventType="touchUpInside" id="sTo-hD-f1Q"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qGt-fu-7Dt">
+                                <rect key="frame" x="75" y="86" width="225" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="emailTextFieldDidChange:" destination="b4b-Ia-LqJ" eventType="editingChanged" id="Cdz-Ze-TpX"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vKb-Y4-5ch">
+                                <rect key="frame" x="75" y="124" width="225" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="passwordTextFieldDidChange:" destination="b4b-Ia-LqJ" eventType="editingChanged" id="eEV-jp-NDd"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zy-xv-aKk">
+                                <rect key="frame" x="109" y="617" width="156" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Forgot password?">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="forgotPassButtonPressed:" destination="b4b-Ia-LqJ" eventType="touchUpInside" id="02h-GF-D3q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="rLb-7x-StB" appends="YES" id="Ev7-dv-2Yo"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="accLabel" destination="pNG-Eg-cI6" id="hLV-mv-DRE"/>
+                        <outlet property="emailTextField" destination="qGt-fu-7Dt" id="N7U-Zz-Uia"/>
+                        <outlet property="passwordTextField" destination="vKb-Y4-5ch" id="7Mt-rj-Vuw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0aP-nM-XMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rLb-7x-StB">
+                    <connections>
+                        <action selector="tapGestureDidFire:" destination="b4b-Ia-LqJ" id="gPC-ax-Mgn"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="856.82158920539734"/>
         </scene>
         <!--Password Setup View Controller-->
         <scene sceneID="HZt-22-gR7">

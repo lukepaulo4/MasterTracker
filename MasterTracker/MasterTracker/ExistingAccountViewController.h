@@ -10,4 +10,11 @@
 
 @interface ExistingAccountViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *accLabel;
+@property (strong, nonatomic) IBOutlet UITextField *emailTextField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordTextField;
+
+- (void)enterButtonPressed:(UIButton *)sender;
+- (void)forgotPassButtonPressed:(UIButton *)sender;
+
 @end

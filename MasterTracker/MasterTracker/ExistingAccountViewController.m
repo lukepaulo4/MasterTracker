@@ -24,6 +24,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)emailTextFieldDidChange:(UITextField *)sender {
+    if ([self.emailTextField.text length] > 0) {
+    }
+}
+
+- (IBAction)passwordTextFieldDidChange:(UITextField *)sender {
+    if ([self.passwordTextField.text length] > 0) {
+    }
+}
+
+- (IBAction)enterButtonPressed:(id)sender {
+}
+
+- (IBAction)forgotPassButtonPressed:(id)sender {
+}
+
+- (IBAction)tapGestureDidFire:(UITapGestureRecognizer *)sender {
+}
+
+
+
 /*
 #pragma mark - Navigation
 
