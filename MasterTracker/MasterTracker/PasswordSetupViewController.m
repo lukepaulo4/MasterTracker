@@ -35,6 +35,49 @@
 }
 
 - (IBAction)finishButtonPressed:(id)sender {
+    
+    if ([[self.passwordTextField text] isEqualToString:@""] || [[self.retypePasswordTextField text] isEqualToString:@""]) {
+        
+        NSLog(@"no password inputted");
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            NSString *message1 = [[NSString alloc] initWithFormat:@"Oops"];
+            UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:message1 message:@"Looks like one of the password fields is blank." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction1 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert1 addAction:defaultAction1];
+            [self presentViewController:alert1 animated:YES completion:nil];
+            
+        });
+        
+        
+    } else if (self.passwordTextField.text == self.retypePasswordTextField.text) {
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            [self performSegueWithIdentifier:@"newAccCreatedSegue" sender:self];
+            
+        });
+        
+    } else {
+        
+        NSLog(@"passwords don't match");
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            NSString *message = [[NSString alloc] initWithFormat:@"Oops"];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:@"Looks like your passwords don't match. Try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+        });
+    }
+
 }
 
 - (IBAction)tapGestureDidFire:(UITapGestureRecognizer *)sender {

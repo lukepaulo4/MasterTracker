@@ -325,6 +325,7 @@
                         <outlet property="passwordTextField" destination="snt-9g-nYD" id="vi4-8e-fEu"/>
                         <outlet property="retypeLabel" destination="KpQ-CE-y1o" id="yaj-sj-gNX"/>
                         <outlet property="retypePasswordTextField" destination="c1h-nu-vmX" id="U9D-KB-Y6M"/>
+                        <segue destination="UT8-0M-bat" kind="show" identifier="newAccCreatedSegue" id="Db6-he-FKg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6n-Sm-vN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -335,6 +336,166 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1037.5999999999999" y="138.98050974512745"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="q9E-EZ-AMv">
+            <objects>
+                <tableViewController id="UT8-0M-bat" customClass="WelcomeViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iY8-Wt-4h8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Welcome Cell Identifier" id="LRn-z5-zpB">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LRn-z5-zpB" id="1Sf-c3-YN2">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UT8-0M-bat" id="3Ge-Yk-cpe"/>
+                            <outlet property="delegate" destination="UT8-0M-bat" id="0qR-69-w31"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="gqG-cV-bwS" kind="show" identifier="newProjectSetupSegue" id="La1-nQ-wjd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0i1-t4-frp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1844" y="139"/>
+        </scene>
+        <!--Project Setup View Controller-->
+        <scene sceneID="Q7x-1u-vbq">
+            <objects>
+                <viewController id="gqG-cV-bwS" customClass="ProjectSetupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eVi-vU-fR2"/>
+                        <viewControllerLayoutGuide type="bottom" id="17G-Da-TID"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Wa8-ha-oND">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A9P-i9-WCD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Project Setup" id="e5I-jr-P9u"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to your new Master Tracker! Let's begin by adding a new project." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRx-7S-Z8T">
+                                <rect key="frame" x="16" y="44" width="343" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="project name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l9o-1O-jvB">
+                                <rect key="frame" x="82" y="133" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="projectNameTextFieldDidChange:" destination="gqG-cV-bwS" eventType="editingChanged" id="Yqe-m6-kdF"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="street address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4rZ-vX-ek3">
+                                <rect key="frame" x="82" y="200" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="projectAddressTextFieldDidChange:" destination="gqG-cV-bwS" eventType="editingChanged" id="axY-Sf-WdH"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="city" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DNs-am-sYr">
+                                <rect key="frame" x="82" y="238" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="projectCityTextFieldDidChange:" destination="gqG-cV-bwS" eventType="editingChanged" id="0um-a3-0nc"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="state" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wm0-VF-nfa">
+                                <rect key="frame" x="82" y="276" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="projectStateTextFieldDidChange:" destination="gqG-cV-bwS" eventType="editingChanged" id="VA0-g9-34w"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="zip" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7zn-6z-O5R">
+                                <rect key="frame" x="82" y="314" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="projectZipTextFieldDidChange:" destination="gqG-cV-bwS" eventType="editingChanged" id="RZt-ve-3j6"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRS-gH-shj">
+                                <rect key="frame" x="150" y="352" width="74" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SUBMIT">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonPressed:" destination="gqG-cV-bwS" eventType="touchUpInside" id="fla-E4-upW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where's your project located?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rm-ql-P8n">
+                                <rect key="frame" x="69" y="171" width="236" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What's your project called?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHM-2G-5fZ">
+                                <rect key="frame" x="82" y="104" width="211" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="aob-VZ-JLl" appends="YES" id="M1v-I7-Sy3"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="projectAddressLabel" destination="0rm-ql-P8n" id="HSq-Y7-UBl"/>
+                        <outlet property="projectAddressTextField" destination="4rZ-vX-ek3" id="kty-4P-SGJ"/>
+                        <outlet property="projectCityTextField" destination="DNs-am-sYr" id="oli-LI-7lH"/>
+                        <outlet property="projectNameTextField" destination="l9o-1O-jvB" id="ZgY-Ul-1Zz"/>
+                        <outlet property="projectStateTextField" destination="wm0-VF-nfa" id="fOg-7E-NEz"/>
+                        <outlet property="projectTitleLabel" destination="bHM-2G-5fZ" id="OSo-cs-aer"/>
+                        <outlet property="projectZipTextField" destination="7zn-6z-O5R" id="ZwW-Pc-IBi"/>
+                        <outlet property="welcomeLabel" destination="lRx-7S-Z8T" id="XOt-hk-di9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Vj-OC-WRJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="aob-VZ-JLl">
+                    <connections>
+                        <action selector="tapGestureDidFire:" destination="gqG-cV-bwS" id="j45-kJ-wP6"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2777" y="139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
