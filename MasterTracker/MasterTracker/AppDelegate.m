@@ -7,9 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "ExistingAccountViewController.h"
 
 //need to initialize firebase
+// [START auth_import]
 @import Firebase;
+// [END auth_import]
+
+
 
 @interface AppDelegate ()
 
@@ -21,7 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    //initialize that which is FIREBASE!
+    //initialize that which is FIREBASE! Use fb library to configure APIs
     [FIRApp configure];
     
     return YES;
