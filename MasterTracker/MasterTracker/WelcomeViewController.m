@@ -117,12 +117,27 @@
         
     } else if ([rowValue isEqualToString:@"VIEW SHARED PROJECT"]) {
         
+        //once you get this feature working, segue to it, til then just have a pop up so the app doesn't crash
+//        dispatch_async(dispatch_get_main_queue(),   ^{
+//            
+//            //still need to create this segue
+//            [self performSegueWithIdentifier:@"faqSegue" sender:self];
+        
+//        });
+        
+        
         dispatch_async(dispatch_get_main_queue(),   ^{
             
-            //still need to create this segue
-            [self performSegueWithIdentifier:@"faqSegue" sender:self];
+            NSString *message1 = [[NSString alloc] initWithFormat:@"Oops"];
+            UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:message1 message:@"This feature isn't working yet!." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction1 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {}];
+            
+            [alert1 addAction:defaultAction1];
+            [self presentViewController:alert1 animated:YES completion:nil];
             
         });
+
         
         
         //focus on this after the first one is gucci. and maybe the second
@@ -157,7 +172,16 @@
     //CGFloat height = CGRectGetHeight(self.view.frame);
     CGFloat numSettings = self.welcomePageOptions.count;
     
-    CGFloat cellHeight = correctHeight / numSettings;
+    CGFloat cellHeight;
+    
+    if (numSettings > 4) {
+    
+        cellHeight = correctHeight / numSettings;
+        
+    } else {
+        
+        cellHeight = screenHeight / 5;
+    }
     
     //fuck this line. prints too many.
     //NSLog(@"Settings cell height is equal to %f", cellHeight);
