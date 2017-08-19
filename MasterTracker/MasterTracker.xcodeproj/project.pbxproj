@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00244C211F4809EE00182ED3 /* MasterTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MasterTracker.entitlements; sourceTree = "<group>"; };
 		003FEBA71F40DEA6006B3BA9 /* EmailSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailSetupViewController.h; sourceTree = "<group>"; };
 		003FEBA81F40DEA6006B3BA9 /* EmailSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailSetupViewController.m; sourceTree = "<group>"; };
 		003FEBAA1F40DEE1006B3BA9 /* PasswordSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordSetupViewController.h; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 		00A862C71F3FB73C008B81FF /* MasterTracker */ = {
 			isa = PBXGroup;
 			children = (
+				00244C211F4809EE00182ED3 /* MasterTracker.entitlements */,
 				003FEBA71F40DEA6006B3BA9 /* EmailSetupViewController.h */,
 				003FEBA81F40DEA6006B3BA9 /* EmailSetupViewController.m */,
 				003FEBAA1F40DEE1006B3BA9 /* PasswordSetupViewController.h */,
@@ -276,6 +278,17 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 4UJ46XA4Z7;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					00A862DD1F3FB73C008B81FF = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -561,6 +574,9 @@
 			baseConfigurationReference = FBC64157B8049135B4182123 /* Pods-MasterTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = MasterTracker/MasterTracker.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = MasterTracker/MasterTracker.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4UJ46XA4Z7;
 				INFOPLIST_FILE = MasterTracker/Info.plist;
@@ -575,6 +591,9 @@
 			baseConfigurationReference = 8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = MasterTracker/MasterTracker.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = MasterTracker/MasterTracker.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4UJ46XA4Z7;
 				INFOPLIST_FILE = MasterTracker/Info.plist;
