@@ -21,6 +21,25 @@
 
 @end
 
+//add category for email validation
+@interface NSString (emailValidation)
+- (BOOL)isValidEmail;
+@end
+
+//implement code that determines if email is valid
+@implementation NSString (emailValidation)
+- (BOOL)isValidEmail {
+    BOOL stricterFilter = NO; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+    NSString *stricterFilterString = @"^[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";
+    NSString *laxString = @"^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:self];
+    
+}
+@end
+
+
 @implementation EmailSetupViewController
 
 - (void)viewDidLoad {
@@ -61,6 +80,8 @@
 
 - (IBAction)nextButtonPressed:(id)sender {
     
+    NSString *emailString = self.enterEmailTextField.text;
+    
     //throw an else if in here at some point that doens't allow the email text field to be "" either and it has to have a @ in it.
     if ([[self.enterEmailTextField text] isEqualToString:@""]) {
     
@@ -77,8 +98,20 @@
         });
         
     //add an else if that validates if the entered email address is coo
-
-    
+    } else if (![emailString isValidEmail]) {
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            NSString *message3 = [[NSString alloc] initWithFormat:@"Oops"];
+            UIAlertController *alert3 = [UIAlertController alertControllerWithTitle:message3 message:@"Email address entered isn't valid. Try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction3 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {}];
+            
+            [alert3 addAction:defaultAction3];
+            [self presentViewController:alert3 animated:YES completion:nil];
+            
+        });
+        
     
     } else if ([[self.passwordTextField text] isEqualToString:@""] || [[self.retypePasswordTextField text] isEqualToString:@""]) {
         
