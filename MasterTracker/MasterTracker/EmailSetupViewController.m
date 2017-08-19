@@ -97,7 +97,7 @@
             
         });
         
-    //add an else if that validates if the entered email address is coo
+    //adds that email is valid
     } else if (![emailString isValidEmail]) {
         
         dispatch_async(dispatch_get_main_queue(),   ^{
