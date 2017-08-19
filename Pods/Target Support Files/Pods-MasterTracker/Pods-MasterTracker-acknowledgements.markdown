@@ -24,6 +24,94 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Firebase
+
+Copyright 2016 Google Inc.
+
+## FirebaseAnalytics
+
+Copyright 2016 Google
+
+## FirebaseAuth
+
+Copyright 2016 Google
+
+## FirebaseCrash
+
+Copyright 2016 Google Inc.
+
+## FirebaseDatabase
+
+Copyright 2016 Google
+
+## FirebaseDynamicLinks
+
+Copyright 2016 Google Inc.
+
+## FirebaseInstanceID
+
+Copyright 2016 Google Inc.
+
+## FirebaseInvites
+
+Copyright 2016 Google Inc.
+
+## FirebaseMessaging
+
+Copyright 2016 Google Inc.
+
+## FirebaseRemoteConfig
+
+Copyright 2016 Google Inc.
+
+## FirebaseStorage
+
+Copyright 2016 Google Inc.
+
+## Google-Mobile-Ads-SDK
+
+Copyright 2011 Google Inc. All Rights Reserved.
+
+## GoogleAppUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleAuthUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleIPhoneUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleInterchangeUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleNetworkingUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleParsingUtilities
+
+Copyright 2015 Google Inc.
+
+## GooglePlusUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleSignIn
+
+Copyright 2015 Google Inc. All Rights Reserved.
+
+## GoogleSymbolUtilities
+
+Copyright 2015 Google Inc.
+
+## GoogleUtilities
+
+Copyright 2015 Google Inc.
+
 ## UICKeyChainStore
 
 The MIT License

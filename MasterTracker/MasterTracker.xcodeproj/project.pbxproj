@@ -22,6 +22,9 @@
 		00A862D81F3FB73C008B81FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */; };
 		00A862E31F3FB73C008B81FF /* MasterTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862E21F3FB73C008B81FF /* MasterTrackerTests.m */; };
 		00A862EE1F3FB73C008B81FF /* MasterTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862ED1F3FB73C008B81FF /* MasterTrackerUITests.m */; };
+		00CAD7961F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
+		00CAD7971F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
+		00CAD7981F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		DB538A42DDD655166E8AABDE /* libPods-MasterTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +76,7 @@
 		00A862E91F3FB73C008B81FF /* MasterTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasterTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A862ED1F3FB73C008B81FF /* MasterTrackerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterTrackerUITests.m; sourceTree = "<group>"; };
 		00A862EF1F3FB73C008B81FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.release.xcconfig"; sourceTree = "<group>"; };
 		BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MasterTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC64157B8049135B4182123 /* Pods-MasterTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 				00A862D41F3FB73C008B81FF /* Assets.xcassets */,
 				00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */,
 				00A862D91F3FB73C008B81FF /* Info.plist */,
+				00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */,
 				00A862C81F3FB73C008B81FF /* Supporting Files */,
 			);
 			path = MasterTracker;
@@ -312,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A862D81F3FB73C008B81FF /* LaunchScreen.storyboard in Resources */,
+				00CAD7961F47F8A500090C7F /* GoogleService-Info.plist in Resources */,
 				00A862D51F3FB73C008B81FF /* Assets.xcassets in Resources */,
 				00A862D31F3FB73C008B81FF /* Main.storyboard in Resources */,
 			);
@@ -321,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CAD7971F47F8A500090C7F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CAD7981F47F8A500090C7F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,9 +366,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker-resources.sh",
+				"${PODS_ROOT}/FirebaseInvites/Frameworks/FirebaseInvites.framework/Resources/GINInviteResources.bundle",
+				"${PODS_ROOT}/FirebaseInvites/Frameworks/FirebaseInvites.framework/Resources/GPPACLPickerResources.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

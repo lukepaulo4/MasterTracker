@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+//need to initialize firebase
+@import Firebase;
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +20,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //initialize that which is FIREBASE!
+    [FIRApp configure];
+    
     return YES;
 }
 
