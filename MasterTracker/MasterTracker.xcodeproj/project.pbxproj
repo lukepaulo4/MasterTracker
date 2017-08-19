@@ -22,6 +22,7 @@
 		00A862D81F3FB73C008B81FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */; };
 		00A862E31F3FB73C008B81FF /* MasterTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862E21F3FB73C008B81FF /* MasterTrackerTests.m */; };
 		00A862EE1F3FB73C008B81FF /* MasterTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862ED1F3FB73C008B81FF /* MasterTrackerUITests.m */; };
+		DB538A42DDD655166E8AABDE /* libPods-MasterTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,9 @@
 		00A862E91F3FB73C008B81FF /* MasterTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasterTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A862ED1F3FB73C008B81FF /* MasterTrackerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterTrackerUITests.m; sourceTree = "<group>"; };
 		00A862EF1F3FB73C008B81FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.release.xcconfig"; sourceTree = "<group>"; };
+		BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MasterTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC64157B8049135B4182123 /* Pods-MasterTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB538A42DDD655166E8AABDE /* libPods-MasterTracker.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,8 @@
 				00A862E11F3FB73C008B81FF /* MasterTrackerTests */,
 				00A862EC1F3FB73C008B81FF /* MasterTrackerUITests */,
 				00A862C61F3FB73C008B81FF /* Products */,
+				7CCCB85405CA4652B95FA84E /* Pods */,
+				5DE4479442435059866CEC43 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +182,23 @@
 			path = MasterTrackerUITests;
 			sourceTree = "<group>";
 		};
+		5DE4479442435059866CEC43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CCCB85405CA4652B95FA84E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBC64157B8049135B4182123 /* Pods-MasterTracker.debug.xcconfig */,
+				8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -182,9 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00A862F21F3FB73C008B81FF /* Build configuration list for PBXNativeTarget "MasterTracker" */;
 			buildPhases = (
+				7F12AB3067DA2126B78FB7DC /* [CP] Check Pods Manifest.lock */,
 				00A862C11F3FB73C008B81FF /* Sources */,
 				00A862C21F3FB73C008B81FF /* Frameworks */,
 				00A862C31F3FB73C008B81FF /* Resources */,
+				EF5AF75970212369BFE2B5A0 /* [CP] Embed Pods Frameworks */,
+				C6C163E49FA814B46FAB3A06 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -305,6 +332,57 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7F12AB3067DA2126B78FB7DC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MasterTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6C163E49FA814B46FAB3A06 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF5AF75970212369BFE2B5A0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		00A862C11F3FB73C008B81FF /* Sources */ = {
@@ -467,6 +545,7 @@
 		};
 		00A862F31F3FB73C008B81FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBC64157B8049135B4182123 /* Pods-MasterTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -480,6 +559,7 @@
 		};
 		00A862F41F3FB73C008B81FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
