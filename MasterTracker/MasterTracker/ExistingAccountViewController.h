@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExistingAccountViewController : UIViewController
+@interface ExistingAccountViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *accLabel;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;

@@ -7,6 +7,7 @@
 //
 
 #import "EmailSetupViewController.h"
+#import "AppDelegate.h"
 
 @interface EmailSetupViewController ()
 
@@ -81,9 +82,11 @@
 - (IBAction)nextButtonPressed:(id)sender {
     
     NSString *emailString = self.enterEmailTextField.text;
+    NSString *passwordString = self.passwordTextField.text;
+    NSString *retypePasswordString = self.retypePasswordTextField.text;
     
     //throw an else if in here at some point that doens't allow the email text field to be "" either and it has to have a @ in it.
-    if ([[self.enterEmailTextField text] isEqualToString:@""]) {
+    if ([emailString isEqualToString:@""]) {
     
         dispatch_async(dispatch_get_main_queue(),   ^{
             
@@ -113,7 +116,7 @@
         });
         
     
-    } else if ([[self.passwordTextField text] isEqualToString:@""] || [[self.retypePasswordTextField text] isEqualToString:@""]) {
+    } else if ([passwordString isEqualToString:@""] || [retypePasswordString isEqualToString:@""]) {
         
         NSLog(@"no password inputted");
         
@@ -129,16 +132,8 @@
             
         });
         
-        
-    } else if (self.passwordTextField.text == self.retypePasswordTextField.text) {
-        
-        dispatch_async(dispatch_get_main_queue(),   ^{
-            
-            [self performSegueWithIdentifier:@"newAccCreatedSegue" sender:self];
-            
-        });
-        
-    } else {
+    
+    } else if (!(passwordString == retypePasswordString)) {
         
         NSLog(@"passwords don't match");
         
@@ -153,8 +148,23 @@
             [self presentViewController:alert animated:YES completion:nil];
             
         });
+    
+        
+        
+    } else if (passwordString == retypePasswordString) {
+        
+        //Create a new account by passing the new user's email address and password
+        [[FIRAuth auth] createUserWithEmail:emailString password:passwordString completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+            
+        }];
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            [self performSegueWithIdentifier:@"newAccCreatedSegue" sender:self];
+            
+        });
+        
     }
-
 
 }
 

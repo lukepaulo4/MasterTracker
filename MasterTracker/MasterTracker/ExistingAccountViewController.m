@@ -7,6 +7,7 @@
 //
 
 #import "ExistingAccountViewController.h"
+#import "AppDelegate.h"
 
 @interface ExistingAccountViewController ()
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.emailTextField.delegate = self;
+    self.passwordTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +39,41 @@
 }
 
 - (IBAction)enterButtonPressed:(id)sender {
+    
+    NSString *emailString = self.emailTextField.text;
+    NSString *passwordString = self.passwordTextField.text;
+    
+    if ([emailString isEqualToString:@""] || [passwordString isEqualToString:@""]) {
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            NSString *message1 = [[NSString alloc] initWithFormat:@"Oops"];
+            UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:message1 message:@"Looks like one of the required fields is blank." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction1 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {}];
+            
+            [alert1 addAction:defaultAction1];
+            [self presentViewController:alert1 animated:YES completion:nil];
+            
+        });
+        
+    } else {
+            
+        
+    [[FIRAuth auth] signInWithEmail:emailString password:passwordString completion:^(FIRUser *user, NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            [self performSegueWithIdentifier:@"existingAccSignInSegue" sender:self];
+            
+        });
+        
+    }];
+
+        
+    }
+
+    
 }
 
 - (IBAction)forgotPassButtonPressed:(id)sender {

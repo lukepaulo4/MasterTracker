@@ -209,6 +209,7 @@
                         <outlet property="accLabel" destination="pNG-Eg-cI6" id="hLV-mv-DRE"/>
                         <outlet property="emailTextField" destination="qGt-fu-7Dt" id="N7U-Zz-Uia"/>
                         <outlet property="passwordTextField" destination="vKb-Y4-5ch" id="7Mt-rj-Vuw"/>
+                        <segue destination="UT8-0M-bat" kind="show" identifier="existingAccSignInSegue" id="LXi-U0-h4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0aP-nM-XMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -458,5 +459,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="HU5-nx-crC"/>
+        <segue reference="LXi-U0-h4c"/>
     </inferredMetricsTieBreakers>
 </document>

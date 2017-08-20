@@ -14,8 +14,6 @@
 @import Firebase;
 // [END auth_import]
 
-
-
 @interface AppDelegate ()
 
 @end
