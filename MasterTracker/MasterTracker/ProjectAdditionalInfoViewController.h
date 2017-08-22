@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProjectAdditionalInfoViewController : UIViewController
+@interface ProjectAdditionalInfoViewController : UIViewController <UITextFieldDelegate>
 
 @end

@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.projectNameTextField.delegate = self;
+    self.projectAddressTextField.delegate = self;
+    self.projectCityTextField.delegate = self;
+    self.projectStateTextField.delegate = self;
+    self.projectZipTextField.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
