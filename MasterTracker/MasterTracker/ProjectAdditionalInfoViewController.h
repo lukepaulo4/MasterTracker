@@ -10,4 +10,6 @@
 
 @interface ProjectAdditionalInfoViewController : UIViewController <UITextFieldDelegate>
 
+- (void)saveButtonPressed:(UIButton *)sender;
+
 @end

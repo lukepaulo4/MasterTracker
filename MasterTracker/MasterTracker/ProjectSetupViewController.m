@@ -46,6 +46,31 @@
 }
 
 - (IBAction)submitButtonPressed:(id)sender {
+    
+    if ([self.projectNameTextField.text isEqualToString:@""]) {
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            NSString *message1 = [[NSString alloc] initWithFormat:@"Oops"];
+            UIAlertController *alert1 = [UIAlertController alertControllerWithTitle:message1 message:@"Project name required." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction1 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {}];
+            
+            [alert1 addAction:defaultAction1];
+            [self presentViewController:alert1 animated:YES completion:nil];
+            
+        });
+        
+    } else {
+    
+    dispatch_async(dispatch_get_main_queue(),   ^{
+        
+        [self performSegueWithIdentifier:@"addProjectInfoSegue" sender:self];
+        
+    });
+        
+    }
+    
 }
 
 - (IBAction)tapGestureDidFire:(UITapGestureRecognizer *)sender {
