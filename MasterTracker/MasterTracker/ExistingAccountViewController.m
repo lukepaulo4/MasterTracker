@@ -107,6 +107,7 @@
                 
             });
             
+            //For some reason the error message isn't popping up. blah.
         } else if ([errorCode isEqualToString:@"Indicates the user attempted sign in with a wrong password."]) {
             
             NSLog(@"Error %@", error);

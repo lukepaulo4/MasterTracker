@@ -14,6 +14,8 @@
 		003FEBB51F45452C006B3BA9 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003FEBB41F45452C006B3BA9 /* WelcomeViewController.m */; };
 		003FEBB81F454545006B3BA9 /* ProjectSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003FEBB71F454545006B3BA9 /* ProjectSetupViewController.m */; };
 		003FEBBB1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003FEBBA1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m */; };
+		009D67B11F5D94C1005378BD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 009D67B01F5D94C1005378BD /* User.m */; };
+		009D67B41F5D94D3005378BD /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 009D67B31F5D94D3005378BD /* DataSource.m */; };
 		00A862CA1F3FB73C008B81FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862C91F3FB73C008B81FF /* main.m */; };
 		00A862CD1F3FB73C008B81FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862CC1F3FB73C008B81FF /* AppDelegate.m */; };
 		00A862D01F3FB73C008B81FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862CF1F3FB73C008B81FF /* ViewController.m */; };
@@ -61,6 +63,10 @@
 		003FEBB71F454545006B3BA9 /* ProjectSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSetupViewController.m; sourceTree = "<group>"; };
 		003FEBB91F45455E006B3BA9 /* ProjectAdditionalInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectAdditionalInfoViewController.h; sourceTree = "<group>"; };
 		003FEBBA1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectAdditionalInfoViewController.m; sourceTree = "<group>"; };
+		009D67AF1F5D94C1005378BD /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		009D67B01F5D94C1005378BD /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		009D67B21F5D94D3005378BD /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		009D67B31F5D94D3005378BD /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		00A862C51F3FB73C008B81FF /* MasterTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MasterTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A862C91F3FB73C008B81FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00A862CB1F3FB73C008B81FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -109,6 +115,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		009D67AE1F5D947B005378BD /* Objects & DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				009D67AF1F5D94C1005378BD /* User.h */,
+				009D67B01F5D94C1005378BD /* User.m */,
+				009D67B21F5D94D3005378BD /* DataSource.h */,
+				009D67B31F5D94D3005378BD /* DataSource.m */,
+			);
+			name = "Objects & DataSource";
+			sourceTree = "<group>";
+		};
 		00A862BC1F3FB73C008B81FF = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +151,7 @@
 		00A862C71F3FB73C008B81FF /* MasterTracker */ = {
 			isa = PBXGroup;
 			children = (
+				009D67AE1F5D947B005378BD /* Objects & DataSource */,
 				00244C211F4809EE00182ED3 /* MasterTracker.entitlements */,
 				003FEBA71F40DEA6006B3BA9 /* EmailSetupViewController.h */,
 				003FEBA81F40DEA6006B3BA9 /* EmailSetupViewController.m */,
@@ -417,10 +435,12 @@
 			files = (
 				00A862D01F3FB73C008B81FF /* ViewController.m in Sources */,
 				003FEBB81F454545006B3BA9 /* ProjectSetupViewController.m in Sources */,
+				009D67B41F5D94D3005378BD /* DataSource.m in Sources */,
 				003FEBA91F40DEA6006B3BA9 /* EmailSetupViewController.m in Sources */,
 				00A862CD1F3FB73C008B81FF /* AppDelegate.m in Sources */,
 				00A862CA1F3FB73C008B81FF /* main.m in Sources */,
 				003FEBBB1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m in Sources */,
+				009D67B11F5D94C1005378BD /* User.m in Sources */,
 				003FEBB21F40DF10006B3BA9 /* ForgotPasswordViewController.m in Sources */,
 				003FEBB51F45452C006B3BA9 /* WelcomeViewController.m in Sources */,
 				003FEBAC1F40DEE1006B3BA9 /* PasswordSetupViewController.m in Sources */,

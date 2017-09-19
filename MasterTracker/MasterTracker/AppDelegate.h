@@ -22,5 +22,9 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
+//define and create a reference to the firebase database
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+
+
 @end
 

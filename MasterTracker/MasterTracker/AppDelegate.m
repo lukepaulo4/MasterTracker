@@ -27,6 +27,9 @@
     //initialize that which is FIREBASE! Use fb library to configure APIs
     [FIRApp configure];
     
+    //define and create a reference to the firebase database. not sure if this will work here, but try it and come back to it if it doesn't.
+    self.ref = [[FIRDatabase database] reference];
+    
     return YES;
 }
 
