@@ -8,10 +8,19 @@
 
 #import "ExistingAccountViewController.h"
 #import "AppDelegate.h"
+#import "AppState.h"
+@import Firebase;
+@import FirebaseAuth;
+
+static NSString *const kFirebaseTermsOfService = @"https://firebase.google.com/terms/";
+
 
 @interface ExistingAccountViewController ()
 
+@property(strong, nonatomic) FIRAuthStateDidChangeListenerHandle handle;
+
 @end
+
 
 @implementation ExistingAccountViewController
 
@@ -22,6 +31,40 @@
     self.emailTextField.delegate = self;
     self.passwordTextField.delegate = self;
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    // [START auth_listener]
+    self.handle = [[FIRAuth auth]
+                   addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+                       // [START_EXCLUDE]
+                       
+                       //Not sure if these are needed now. Leave here in case want to play with later.
+                       //[self setTitleDisplay:user];
+                       //[self.tableView reloadData];
+                       
+                       // [END_EXCLUDE]
+                   }];
+    // [END auth_listener]
+}
+
+//commented out the above exclusions. In case come back and play with this can use this for reference
+//- (void)setTitleDisplay: (FIRUser *)user {
+//    if (user.displayName) {
+//        self.navigationItem.title = [NSString stringWithFormat:@"Welcome %@", user.email];
+//    } else {
+//        self.navigationItem.title = @"Authentication Example";
+//    }
+//}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    // [START remove_auth_listener]
+    [[FIRAuth auth] removeAuthStateDidChangeListener:_handle];
+    // [END remove_auth_listener]
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -65,6 +108,8 @@
         NSString *errorCode = [error localizedDescription];
         
         if (!error) {
+            
+        NSLog(@"No error. Successful login");
         
         dispatch_async(dispatch_get_main_queue(),   ^{
             
@@ -145,6 +190,12 @@
         } else {
             NSLog(@"Error %@", error);
             NSLog(@"Error Message said %@", errorCode);
+            //Below list the possible errors and their respective error messages/codes so you know how to handle each. Cuh.
+            // FIRAuthErrorCodeOperationNotAllowed - Indicates that email and password accounts are not enabled. Enable them in the Auth section of the Firebase console.
+            // FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
+            // FIRAuthErrorCodeUserDisabled - Indicates the user's account is disabled.
+            // FIRAuthErrorCodeWrongPassword - Indicates the user attempted sign in with a wrong password.
+            // FIRAuthErrorDomain - There is no user record corresponding to this identifier. The user may have been deleted.
         }
         
     }];
@@ -155,12 +206,10 @@
     
 }
 
-//Below list the possible errors and their respective error messages/codes so you know how to handle each. Cuh.
-// FIRAuthErrorCodeOperationNotAllowed - Indicates that email and password accounts are not enabled. Enable them in the Auth section of the Firebase console.
-// FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
-// FIRAuthErrorCodeUserDisabled - Indicates the user's account is disabled.
-// FIRAuthErrorCodeWrongPassword - Indicates the user attempted sign in with a wrong password.
-// FIRAuthErrorDomain - There is no user record corresponding to this identifier. The user may have been deleted.
+
+//ok let's try and ref some databasing!
+
+
 
 - (IBAction)forgotPassButtonPressed:(id)sender {
 }

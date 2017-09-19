@@ -6,9 +6,13 @@
 //  Copyright © 2017 lpinc. All rights reserved.
 //
 
+
+
 #import "PasswordSetupViewController.h"
 
 @interface PasswordSetupViewController ()
+
+//NOTE THIS VC WAS ELIMINATED AND BOTH EMAIL AND PASSWORD ARE INPUTTED INTO THE EMAIL SETUP VC. CAN DISREGARD THIS VC FOR NOW UNLESS YOU DECIDE TO GO BACK LATER.
 
 @end
 

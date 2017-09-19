@@ -24,6 +24,7 @@
 		00A862D81F3FB73C008B81FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */; };
 		00A862E31F3FB73C008B81FF /* MasterTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862E21F3FB73C008B81FF /* MasterTrackerTests.m */; };
 		00A862EE1F3FB73C008B81FF /* MasterTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862ED1F3FB73C008B81FF /* MasterTrackerUITests.m */; };
+		00C76EA11F70E3EA00E68672 /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C76EA01F70E3E900E68672 /* AppState.m */; };
 		00CAD7961F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00CAD7971F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00CAD7981F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
@@ -83,6 +84,8 @@
 		00A862E91F3FB73C008B81FF /* MasterTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasterTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A862ED1F3FB73C008B81FF /* MasterTrackerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterTrackerUITests.m; sourceTree = "<group>"; };
 		00A862EF1F3FB73C008B81FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00C76E9F1F70E3E900E68672 /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
+		00C76EA01F70E3E900E68672 /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
 		00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.release.xcconfig"; sourceTree = "<group>"; };
 		BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MasterTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +121,8 @@
 		009D67AE1F5D947B005378BD /* Objects & DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				00C76E9F1F70E3E900E68672 /* AppState.h */,
+				00C76EA01F70E3E900E68672 /* AppState.m */,
 				009D67AF1F5D94C1005378BD /* User.h */,
 				009D67B01F5D94C1005378BD /* User.m */,
 				009D67B21F5D94D3005378BD /* DataSource.h */,
@@ -444,6 +449,7 @@
 				003FEBB21F40DF10006B3BA9 /* ForgotPasswordViewController.m in Sources */,
 				003FEBB51F45452C006B3BA9 /* WelcomeViewController.m in Sources */,
 				003FEBAC1F40DEE1006B3BA9 /* PasswordSetupViewController.m in Sources */,
+				00C76EA11F70E3EA00E68672 /* AppState.m in Sources */,
 				003FEBAF1F40DEFB006B3BA9 /* ExistingAccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

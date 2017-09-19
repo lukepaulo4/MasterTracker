@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "DataSource.h"
 
+@import Firebase;
+
 //Can insert <NSCoding> after object, however, doing so will require the use of the initWithCoder/enableWithCoder functions to be called in the .h implementation file
 @interface User : NSObject
 
@@ -16,7 +18,13 @@
 
 //list all the data this class should store
 @property (nonatomic, strong) NSString *token;
-@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *email;
+
+
+//Initialize data model from snapshot
+- (instancetype)initWithSnapshot:(FIRDataSnapshot *)snapshot;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSDictionary *author;
+
 
 @end

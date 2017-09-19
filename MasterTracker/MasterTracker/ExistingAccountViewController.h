@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@import FirebaseAuth;
 
 @interface ExistingAccountViewController : UIViewController <UITextFieldDelegate>
 
