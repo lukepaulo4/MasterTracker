@@ -43,6 +43,9 @@
 
 @implementation EmailSetupViewController
 
+@synthesize ref;
+@synthesize handle;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -156,7 +159,25 @@
         //Create a new account by passing the new user's email address and password
         [[FIRAuth auth] createUserWithEmail:emailString password:passwordString completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
             
+            NSLog(@"pre-handle change: the user:%@", user);
+            NSLog(@"id:%@", user.uid);
+            
+            if (!error) {
+                
+                self.handle = [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+                                   
+                               
+                    NSLog(@"post-handle change: the user:%@", user);
+                    NSLog(@"id:%@", user.uid);
+    
+                    ref = [[FIRDatabase database] reference];
+                    
+                    //this is sick. my comment game is fierce
+                    [[[ref child:@"users"] child:user.uid] setValue:@{@"userEmail":emailString}];
+            
         }];
+                
+            }
         
         dispatch_async(dispatch_get_main_queue(),   ^{
             
@@ -165,6 +186,10 @@
         });
         
     }
+         
+         ];
+    }
+         
 
 }
 

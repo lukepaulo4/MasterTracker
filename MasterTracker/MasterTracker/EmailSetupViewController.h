@@ -9,7 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
+@import Firebase;
+
 @interface EmailSetupViewController : UIViewController <UITextFieldDelegate>
+
+
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) FIRAuth *handle;
+
 
 - (void)nextButtonPressed:(UIButton *)sender;
 - (void)haveAccButtonPressed:(UIButton *)sender;
