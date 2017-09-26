@@ -14,7 +14,7 @@
 @interface EmailSetupViewController : UIViewController <UITextFieldDelegate>
 
 
-@property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) FIRDatabaseReference *rootRef;
 @property (strong, nonatomic) FIRAuth *handle;
 
 

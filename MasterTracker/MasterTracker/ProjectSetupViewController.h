@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "EmailSetupViewController.h"
+
+@import Firebase;
 
 @interface ProjectSetupViewController : UIViewController <UITextFieldDelegate>
+
+@property (strong, nonatomic) FIRAuth *handle;
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *projectTitleLabel;

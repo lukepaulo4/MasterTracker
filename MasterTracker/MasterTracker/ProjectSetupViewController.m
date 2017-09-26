@@ -7,12 +7,16 @@
 //
 
 #import "ProjectSetupViewController.h"
+#import "User.h"
+#import "AppState.h"
 
 @interface ProjectSetupViewController ()
 
 @end
 
 @implementation ProjectSetupViewController
+
+@synthesize handle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,23 +34,48 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Implement the UITextFieldDelegate protocol method.
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder]; //dismisses the keyboard
+    return YES;
+}
+
 - (IBAction)projectNameTextFieldDidChange:(UITextField *)sender {
+    if ([self.projectNameTextField.text length] > 0) {
+    }
 }
 
 - (IBAction)projectAddressTextFieldDidChange:(UITextField *)sender {
+    if ([self.projectAddressTextField.text length] > 0) {
+    }
 }
 
 - (IBAction)projectCityTextFieldDidChange:(UITextField *)sender {
+    if ([self.projectCityTextField.text length] > 0) {
+    }
 }
 
 - (IBAction)projectStateTextFieldDidChange:(UITextField *)sender {
+    if ([self.projectStateTextField.text length] > 0) {
+    }
 }
 
 - (IBAction)projectZipTextFieldDidChange:(UITextField *)sender {
+    if ([self.projectZipTextField.text length] > 0) {
+    }
 }
 
 - (IBAction)submitButtonPressed:(id)sender {
     
+    NSString *projectNameString = self.projectNameTextField.text;
+    /*NSString *projectAddressString = self.projectAddressTextField.text;
+    NSString *projectCityString = self.projectCityTextField.text;
+    NSString *projectStateString = self.projectStateTextField.text;
+    NSString *projectZipString = self.projectZipTextField.text;*/
+    NSString *projectUser = [[AppState sharedInstance].currentUser userID];
+
+    
+    //seems like the only one we really need is the project name. All the other info is optional.
     if ([self.projectNameTextField.text isEqualToString:@""]) {
         
         dispatch_async(dispatch_get_main_queue(),   ^{
@@ -62,6 +91,27 @@
         });
         
     } else {
+        
+        /*NSDictionary *projectData = @{ @"timestamp": FIRServerValue.timestamp,
+                                       @"projectUser": projectUser,
+                                       @"projectName": projectNameString,
+                                       @"projectAddress": projectAddressString,
+                                       @"projectCity": projectCityString,
+                                       @"projectState": projectStateString,
+                                       @"projectZip": projectZipString
+                                       };*/
+                                                        
+        NSLog(@"project user name is: %@", projectUser);
+        //try and create a child of newUserRef
+        /*
+        FIRDatabaseReference *ref = [[FIRDatabase database] reference];
+        FIRDatabaseReference *usersRef = [ref child: @"users"];
+        NSString *newUserChild = @"project1";
+        [usersRef updateChildValues:newUserChild];*/
+        
+        
+        
+        NSLog(@"project name added named: %@", projectNameString);
     
     dispatch_async(dispatch_get_main_queue(),   ^{
         

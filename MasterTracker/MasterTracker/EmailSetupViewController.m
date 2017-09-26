@@ -43,7 +43,7 @@
 
 @implementation EmailSetupViewController
 
-@synthesize ref;
+@synthesize rootRef;
 @synthesize handle;
 
 - (void)viewDidLoad {
@@ -159,24 +159,50 @@
         //Create a new account by passing the new user's email address and password
         [[FIRAuth auth] createUserWithEmail:emailString password:passwordString completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
             
-            NSLog(@"pre-handle change: the user:%@", user);
-            NSLog(@"id:%@", user.uid);
+            NSLog(@"pre-handle change: the user: %@", user);
+            NSLog(@"user id :%@", user.uid);
             
             if (!error) {
                 
                 self.handle = [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
                                    
                                
-                    NSLog(@"post-handle change: the user:%@", user);
-                    NSLog(@"id:%@", user.uid);
-    
-                    ref = [[FIRDatabase database] reference];
+                    NSLog(@"post-handle change: the user: %@", user);
+                    NSLog(@"user id: %@", user.uid);
                     
-                    //this is sick. my comment game is fierce
-                    [[[ref child:@"users"] child:user.uid] setValue:@{@"userEmail":emailString}];
+                    NSDictionary *projectData = @{ @"projectUser": user.uid,
+                                                   @"projectName": @"",
+                                                   @"projectAddress": @"",
+                                                   @"projectCity": @"",
+                                                   @"projectState": @"",
+                                                   @"projectZip": @""
+                                                   };
+                    
+                    //create a root ref
+                    rootRef = [[FIRDatabase database] reference];
+                    
+                    //create a child of the rootRef
+                    FIRDatabaseReference *usersRef = [rootRef child:@"users"];
+                    
+                    //Create a child under the users ref
+                    FIRDatabaseReference *newUserRef = [usersRef child:user.uid];
+                    
+                    //set a value of the dictionary for which UID is the key
+                    [newUserRef setValue:@{@"userEmail":emailString}];
+                    
+                    //Create a child under the users ref
+                    FIRDatabaseReference *projectRef = [usersRef child:@"project1"];
+                    
+                    //set a value of the dictionary for which project1 is the key
+                    [projectRef setValue:projectData];
+                    
+                    
             
         }];
                 
+            } else {
+                
+                NSLog(@"error description %@", error.localizedDescription);
             }
         
         dispatch_async(dispatch_get_main_queue(),   ^{
