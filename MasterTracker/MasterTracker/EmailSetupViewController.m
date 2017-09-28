@@ -178,6 +178,8 @@
                                                    @"projectZip": @""
                                                    };
                     
+                    NSString *projectName = @"1700 Webster";
+                    
                     //create a root ref
                     rootRef = [[FIRDatabase database] reference];
                     
@@ -190,11 +192,12 @@
                     //set a value of the dictionary for which UID is the key
                     [newUserRef setValue:@{@"userEmail":emailString}];
                     
+                    //For some reason this reference isn't being created in FB
                     //Create a child under the users ref
                     FIRDatabaseReference *projectRef = [usersRef child:@"project1"];
                     
                     //set a value of the dictionary for which project1 is the key
-                    [projectRef setValue:projectData];
+                    [projectRef setValue:@{@"projectName":projectName}];
                     
                     
             
