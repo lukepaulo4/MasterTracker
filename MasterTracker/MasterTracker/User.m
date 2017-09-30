@@ -21,6 +21,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)decoder {
     self = [super init];
+    
     if (self) {
         _userID = [decoder decodeObjectForKey:@"userID"];
         _email = [decoder decodeObjectForKey:@"email"];
@@ -45,9 +46,7 @@
     
     FIRUser *user = [FIRAuth auth].currentUser;
     if (user) {
-        // The user's ID, unique to the Firebase project.
-        // Do NOT use this value to authenticate with your backend server,
-        // if you have one. Use getTokenWithCompletion:completion: instead.
+        
         self.userID = user.uid;
         self.email = user.email;
 

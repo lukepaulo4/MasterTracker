@@ -8,6 +8,7 @@
 
 #import "EmailSetupViewController.h"
 #import "AppDelegate.h"
+#import <UICKeyChainStore.h>
 
 @interface EmailSetupViewController ()
 
@@ -88,7 +89,6 @@
     NSString *passwordString = self.passwordTextField.text;
     NSString *retypePasswordString = self.retypePasswordTextField.text;
     
-    //throw an else if in here at some point that doens't allow the email text field to be "" either and it has to have a @ in it.
     if ([emailString isEqualToString:@""]) {
     
         dispatch_async(dispatch_get_main_queue(),   ^{
@@ -159,10 +159,18 @@
         //Create a new account by passing the new user's email address and password
         [[FIRAuth auth] createUserWithEmail:emailString password:passwordString completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
             
+            NSString *projectUser = user.uid;
+            
             NSLog(@"pre-handle change: the user: %@", user);
-            NSLog(@"user id :%@", user.uid);
+            NSLog(@"user id :%@", projectUser);
             
             if (!error) {
+                
+                NSLog(@"No error. Successful login");
+                [UICKeyChainStore setString:projectUser forKey:@"userID"];
+                NSString *kcUserID = [UICKeyChainStore stringForKey:@"userID"];
+                
+                NSLog(@"userID per the keychain is: %@", kcUserID);
                 
                 self.handle = [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
                                    
@@ -170,7 +178,7 @@
                     NSLog(@"post-handle change: the user: %@", user);
                     NSLog(@"user id: %@", user.uid);
                     
-                    NSDictionary *projectData = @{ @"projectUser": user.uid,
+                    NSDictionary *projectData = @{ @"projectUser": projectUser,
                                                    @"projectName": @"",
                                                    @"projectAddress": @"",
                                                    @"projectCity": @"",
@@ -216,6 +224,14 @@
                     
                     NSLog(@"New updated project1 values should be:%@", projectData);
                     
+                    
+                    dispatch_async(dispatch_get_main_queue(),   ^{
+                        
+                        [self performSegueWithIdentifier:@"newAccCreatedSegue" sender:self];
+                        
+                    });
+                    
+                    
             
         }];
                 
@@ -224,11 +240,6 @@
                 NSLog(@"error description %@", error.localizedDescription);
             }
         
-        dispatch_async(dispatch_get_main_queue(),   ^{
-            
-            [self performSegueWithIdentifier:@"newAccCreatedSegue" sender:self];
-            
-        });
         
     }
          

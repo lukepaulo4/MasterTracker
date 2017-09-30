@@ -9,20 +9,38 @@
 #import "ExistingAccountViewController.h"
 #import "AppDelegate.h"
 #import "AppState.h"
-@import Firebase;
-@import FirebaseAuth;
+#import <UICKeyChainStore.h>
+
 
 static NSString *const kFirebaseTermsOfService = @"https://firebase.google.com/terms/";
 
 
 @interface ExistingAccountViewController ()
 
-@property(strong, nonatomic) FIRAuthStateDidChangeListenerHandle handle;
+@end
 
+//add category for email validation
+@interface NSString (emailValidation)
+- (BOOL)isValidEmail;
+@end
+
+//implement code that determines if email is valid
+@implementation NSString (emailValidation)
+- (BOOL)isValidEmail {
+    BOOL stricterFilter = NO; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+    NSString *stricterFilterString = @"^[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";
+    NSString *laxString = @"^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:self];
+    
+}
 @end
 
 
 @implementation ExistingAccountViewController
+
+@synthesize handle;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,44 +50,19 @@ static NSString *const kFirebaseTermsOfService = @"https://firebase.google.com/t
     self.passwordTextField.delegate = self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    // [START auth_listener]
-    self.handle = [[FIRAuth auth]
-                   addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
-                       // [START_EXCLUDE]
-                       
-                       //Not sure if these are needed now. Leave here in case want to play with later.
-                       //[self setTitleDisplay:user];
-                       //[self.tableView reloadData];
-                       
-                       // [END_EXCLUDE]
-                   }];
-    // [END auth_listener]
-}
-
-//commented out the above exclusions. In case come back and play with this can use this for reference
-//- (void)setTitleDisplay: (FIRUser *)user {
-//    if (user.displayName) {
-//        self.navigationItem.title = [NSString stringWithFormat:@"Welcome %@", user.email];
-//    } else {
-//        self.navigationItem.title = @"Authentication Example";
-//    }
-//}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    // [START remove_auth_listener]
-    [[FIRAuth auth] removeAuthStateDidChangeListener:_handle];
-    // [END remove_auth_listener]
-}
-
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//Implement the UITextFieldDelegate protocol method.
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder]; //dismisses the keyboard
+    return YES;
+}
+
 
 - (IBAction)emailTextFieldDidChange:(UITextField *)sender {
     if ([self.emailTextField.text length] > 0) {
@@ -99,6 +92,21 @@ static NSString *const kFirebaseTermsOfService = @"https://firebase.google.com/t
             [self presentViewController:alert1 animated:YES completion:nil];
             
         });
+
+    } else if (![emailString isValidEmail]) {
+        
+        dispatch_async(dispatch_get_main_queue(),   ^{
+            
+            NSString *message3 = [[NSString alloc] initWithFormat:@"Oops"];
+            UIAlertController *alert3 = [UIAlertController alertControllerWithTitle:message3 message:@"Email address entered isn't valid. Try again." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction3 = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                   handler:^(UIAlertAction * action) {}];
+            
+            [alert3 addAction:defaultAction3];
+            [self presentViewController:alert3 animated:YES completion:nil];
+            
+        });
+        
         
     } else {
             
@@ -107,9 +115,27 @@ static NSString *const kFirebaseTermsOfService = @"https://firebase.google.com/t
         
         NSString *errorCode = [error localizedDescription];
         
+        NSString *projectUser = user.uid;
+        NSLog(@"userID per the sign in is: %@", projectUser);
+        
         if (!error) {
             
         NSLog(@"No error. Successful login");
+            [UICKeyChainStore setString:projectUser forKey:@"userID"];
+            NSString *kcUserID = [UICKeyChainStore stringForKey:@"userID"];
+            
+            NSLog(@"userID per the keychain is: %@", kcUserID);
+            
+            
+            
+            
+            //need to add a handle that tells this to stop listening at viewDidDissappear
+            self.handle = [[FIRAuth auth] addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
+                
+                
+            }];
+            
+            
         
         dispatch_async(dispatch_get_main_queue(),   ^{
             
@@ -190,12 +216,7 @@ static NSString *const kFirebaseTermsOfService = @"https://firebase.google.com/t
         } else {
             NSLog(@"Error %@", error);
             NSLog(@"Error Message said %@", errorCode);
-            //Below list the possible errors and their respective error messages/codes so you know how to handle each. Cuh.
-            // FIRAuthErrorCodeOperationNotAllowed - Indicates that email and password accounts are not enabled. Enable them in the Auth section of the Firebase console.
-            // FIRAuthErrorCodeInvalidEmail - Indicates the email address is malformed.
-            // FIRAuthErrorCodeUserDisabled - Indicates the user's account is disabled.
-            // FIRAuthErrorCodeWrongPassword - Indicates the user attempted sign in with a wrong password.
-            // FIRAuthErrorDomain - There is no user record corresponding to this identifier. The user may have been deleted.
+        
         }
         
     }];

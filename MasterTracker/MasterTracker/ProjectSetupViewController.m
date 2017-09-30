@@ -9,12 +9,15 @@
 #import "ProjectSetupViewController.h"
 #import "User.h"
 #import "AppState.h"
+#import <UICKeyChainStore.h>
 
 @interface ProjectSetupViewController ()
+
 
 @end
 
 @implementation ProjectSetupViewController
+
 
 @synthesize handle;
 
@@ -27,6 +30,28 @@
     self.projectCityTextField.delegate = self;
     self.projectStateTextField.delegate = self;
     self.projectZipTextField.delegate = self;
+    
+    
+    
+    
+    //NONE OF THIS IS GETTING INTO THE LOG.....
+    NSString *projectUser = [UICKeyChainStore stringForKey:@"userID"];
+    NSLog(@"user ID per the keychain after sign in is: %@", projectUser);
+    
+    NSString *databaseURL = @"https://mastertracker-9cf47.firebaseio.com/";
+    
+    //create a reference to the database data you want to see. Take a snapshot, see if it exists, then log it to see what it says.
+    FIRDatabaseReference *rootref = [[FIRDatabase database] referenceFromURL:[NSString stringWithFormat:@"%@/%@",databaseURL,projectUser]];
+    [rootref observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *snapshot) {
+        if (snapshot.exists) {
+            NSLog(@"%@",snapshot.value);
+        } else {
+            NSLog(@"snapshot doesn't exist? Value is: %@", snapshot.value);
+        }
+        }
+    ];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,7 +97,6 @@
     NSString *projectCityString = self.projectCityTextField.text;
     NSString *projectStateString = self.projectStateTextField.text;
     NSString *projectZipString = self.projectZipTextField.text;
-    NSString *projectUser = [[AppState sharedInstance].currentUser userID];
 
     
     //seems like the only one we really need is the project name. All the other info is optional.
@@ -92,7 +116,7 @@
         
     } else {
         
-        NSDictionary *projectData = @{ @"projectUser": projectUser,
+        NSDictionary *projectData = @{ @"projectUser": self.projectUser,
                                        @"projectName": projectNameString,
                                        @"projectAddress": projectAddressString,
                                        @"projectCity": projectCityString,
@@ -100,7 +124,7 @@
                                        @"projectZip": projectZipString
                                        };
                                                         
-        NSLog(@"project user name is: %@", projectUser);
+        NSLog(@"project user name is: %@", self.projectUser);
         
         //create an if statement that goes if projectUser is not equal to the current user of the data we about to rearrange, then it's all bad.
         

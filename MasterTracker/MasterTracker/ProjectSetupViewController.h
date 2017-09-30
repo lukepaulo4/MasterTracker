@@ -15,6 +15,9 @@
 @interface ProjectSetupViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) FIRAuth *handle;
+@property (strong, nonatomic) NSString *projectUser;
+@property (strong, nonatomic) NSString *databaseURL;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *projectTitleLabel;
