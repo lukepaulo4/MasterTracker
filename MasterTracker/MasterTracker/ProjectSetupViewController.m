@@ -68,10 +68,10 @@
 - (IBAction)submitButtonPressed:(id)sender {
     
     NSString *projectNameString = self.projectNameTextField.text;
-    /*NSString *projectAddressString = self.projectAddressTextField.text;
+    NSString *projectAddressString = self.projectAddressTextField.text;
     NSString *projectCityString = self.projectCityTextField.text;
     NSString *projectStateString = self.projectStateTextField.text;
-    NSString *projectZipString = self.projectZipTextField.text;*/
+    NSString *projectZipString = self.projectZipTextField.text;
     NSString *projectUser = [[AppState sharedInstance].currentUser userID];
 
     
@@ -92,26 +92,25 @@
         
     } else {
         
-        /*NSDictionary *projectData = @{ @"timestamp": FIRServerValue.timestamp,
-                                       @"projectUser": projectUser,
+        NSDictionary *projectData = @{ @"projectUser": projectUser,
                                        @"projectName": projectNameString,
                                        @"projectAddress": projectAddressString,
                                        @"projectCity": projectCityString,
                                        @"projectState": projectStateString,
                                        @"projectZip": projectZipString
-                                       };*/
+                                       };
                                                         
         NSLog(@"project user name is: %@", projectUser);
-        //try and create a child of newUserRef
-        /*
-        FIRDatabaseReference *ref = [[FIRDatabase database] reference];
-        FIRDatabaseReference *usersRef = [ref child: @"users"];
-        NSString *newUserChild = @"project1";
-        [usersRef updateChildValues:newUserChild];*/
+        
+        //create an if statement that goes if projectUser is not equal to the current user of the data we about to rearrange, then it's all bad.
         
         
         
-        NSLog(@"project name added named: %@", projectNameString);
+        
+        
+        
+        
+        
     
     dispatch_async(dispatch_get_main_queue(),   ^{
         
