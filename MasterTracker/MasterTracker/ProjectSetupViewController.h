@@ -14,6 +14,7 @@
 
 @interface ProjectSetupViewController : UIViewController <UITextFieldDelegate>
 
+@property (strong, nonatomic) FIRDatabaseReference *rootRef;
 @property (strong, nonatomic) FIRAuth *handle;
 @property (strong, nonatomic) NSString *projectUser;
 @property (strong, nonatomic) NSString *databaseURL;
