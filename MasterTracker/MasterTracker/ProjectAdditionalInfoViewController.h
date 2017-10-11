@@ -7,8 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "EmailSetupViewController.h"
+
+@import Firebase;
 
 @interface ProjectAdditionalInfoViewController : UIViewController <UITextFieldDelegate>
+
+@property (strong, nonatomic) FIRDatabaseReference *rootRef;
+@property (strong, nonatomic) FIRAuth *handle;
+@property (strong, nonatomic) NSString *projectUser;
+
 
 - (void)saveButtonPressed:(UIButton *)sender;
 

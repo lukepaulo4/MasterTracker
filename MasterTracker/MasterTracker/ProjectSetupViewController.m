@@ -22,6 +22,7 @@
 @synthesize rootRef;
 @synthesize handle;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -32,23 +33,27 @@
     self.projectStateTextField.delegate = self;
     self.projectZipTextField.delegate = self;
     
+ 
+    self.projectUser = [UICKeyChainStore stringForKey:@"userID"];
     
-    
-    
-    //NONE OF THIS IS GETTING INTO THE LOG.....
-    NSString *projectUser = [UICKeyChainStore stringForKey:@"userID"];
-    NSLog(@"user ID per the keychain after sign in is: %@", projectUser);
+    NSLog(@"user ID per the keychain after sign in is: %@", _projectUser);
     
     //NSString *databaseURL = @"https://mastertracker-9cf47.firebaseio.com/";
     
     //create a reference to the database data you want to see. Take a snapshot, see if it exists, then log it to see what it says.
     self.rootRef = [[FIRDatabase database] reference];
-    [self.rootRef observeEventType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot *_Nonnull snapshot) {
-        NSDictionary *snapshotDict = snapshot.value;
+    
+    [[[self.rootRef child:@"users"] child:_projectUser] observeSingleEventOfType:FIRDataEventTypeValue withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
         
-        NSLog(@"Snapshot dictionary: %@", snapshotDict);
-        
+        NSDictionary *snapDict = snapshot.value;
+        NSLog(@"Snap Dic = %@", snapDict);
+    } withCancelBlock:^(NSError * _Nonnull error) {
+        NSLog(@"error is = %@", error.localizedDescription);
     }];
+
+    
+    
+    NSLog(@"Snapshot done");
     
     
 }
@@ -91,13 +96,11 @@
 
 - (IBAction)submitButtonPressed:(id)sender {
     
-    /*
     NSString *projectNameString = self.projectNameTextField.text;
     NSString *projectAddressString = self.projectAddressTextField.text;
     NSString *projectCityString = self.projectCityTextField.text;
     NSString *projectStateString = self.projectStateTextField.text;
     NSString *projectZipString = self.projectZipTextField.text;
-    */ 
 
     
     //seems like the only one we really need is the project name. All the other info is optional.
@@ -117,26 +120,25 @@
         
     } else {
         
-        /*
-        NSDictionary *projectData = @{ @"projectUser": self.projectUser,
-                                       @"projectName": projectNameString,
-                                       @"projectAddress": projectAddressString,
-                                       @"projectCity": projectCityString,
-                                       @"projectState": projectStateString,
-                                       @"projectZip": projectZipString
-                                       };
-         */
-                                                        
+        
         NSLog(@"project user name is: %@", self.projectUser);
-        //NSLog(@"inputted project data name is: %@", projectData);
         
-        //create an if statement that goes if projectUser is not equal to the current user of the data we about to rearrange, then it's all bad.
+        NSDictionary *newProjData = @{@"projectName": projectNameString,
+                                      @"projectAddress": projectAddressString,
+                                      @"projectCity": projectCityString,
+                                      @"projectState": projectStateString,
+                                      @"projectZip": projectZipString};
         
+        //create new node for storing project data
+        FIRDatabaseReference *projectsRef = [rootRef child:@"projects"];
         
+        FIRDatabaseReference *projUserRef = [projectsRef child:self.projectUser];
         
+        FIRDatabaseReference *projLocaRef = [projUserRef child:@"projectLocationDetails"];
         
+        [projLocaRef setValue:newProjData];
         
-        
+        NSLog(@"New Project Data to be inputted: %@", newProjData);
         
         
     

@@ -15,3 +15,11 @@
 
 
 @end
+
+
+//THIS WILL UPDATE SOMETHING AT THE PATH SPECIFIED. THE PATH MATCHES MY OLD JSON SETUP FROM 10/10 FOR REF
+//NSDictionary *projUpdates = @{[NSString stringWithFormat:@"/users/%@/projectLocation/", self.projectUser]: newProjData};
+
+//NSLog(@"Weird looking projUpdates with path/key: %@", projUpdates);
+
+//[self.rootRef updateChildValues:projUpdates];

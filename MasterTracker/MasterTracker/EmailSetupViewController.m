@@ -177,24 +177,7 @@
                                
                     NSLog(@"post-handle change: the user: %@", user);
                     NSLog(@"user id: %@", user.uid);
-                    
-                    NSDictionary *projectData = @{ @"projectUser": projectUser,
-                                                   @"projectName": @"",
-                                                   @"projectAddress": @"",
-                                                   @"projectCity": @"",
-                                                   @"projectState": @"",
-                                                   @"projectZip": @"",
-                                                   @"projectOwner": @"",
-                                                   @"projectArchitect": @"",
-                                                   @"projectEOR": @"",
-                                                   @"projectGC": @"",
-                                                   @"projectStart": @"",
-                                                   @"projectEnd": @"",
-                                                   @"contractAmount": @"",
-                                                   };
 
-                    
-                    //Need to move/define this in the app delegate or something. Then can do a self.ref and change/ref it that way so that it is transferable across classes.
                     
                     //create a root ref
                     rootRef = [[FIRDatabase database] reference];
@@ -207,22 +190,6 @@
                     
                     //set a value of the dictionary for which UID is the key
                     [newUserRef setValue:@{@"userEmail":emailString}];
-                    
-                    //For some reason this reference isn't being created in FB
-                    //Create a child under the users ref
-                    FIRDatabaseReference *projectRef = [newUserRef child:@"project1"];
-                    
-                    //set a value of the dictionary for which project1 is the key
-                    [projectRef setValue:projectData];
-                    
-                    
-                    NSLog(@"Current project1 values:%@", projectData);
-                    
-                    
-                    //Use this to update the projectRef reference. Just make sure you got some new data.
-                    [projectRef updateChildValues:projectData];
-                    
-                    NSLog(@"New updated project1 values should be:%@", projectData);
                     
                     
                     dispatch_async(dispatch_get_main_queue(),   ^{
