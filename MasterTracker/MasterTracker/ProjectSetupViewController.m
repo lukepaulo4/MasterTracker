@@ -101,6 +101,12 @@
     NSString *projectCityString = self.projectCityTextField.text;
     NSString *projectStateString = self.projectStateTextField.text;
     NSString *projectZipString = self.projectZipTextField.text;
+    
+    
+    [UICKeyChainStore setString:projectNameString forKey:@"project1Name"];
+    NSString *p1Name = [UICKeyChainStore stringForKey:@"project1Name"];
+    
+    NSLog(@"project1 Name per the keychain is: %@", p1Name);
 
     
     //seems like the only one we really need is the project name. All the other info is optional.
@@ -134,7 +140,9 @@
         
         FIRDatabaseReference *projUserRef = [projectsRef child:self.projectUser];
         
-        FIRDatabaseReference *projLocaRef = [projUserRef child:@"projectLocationDetails"];
+        FIRDatabaseReference *proj1Ref = [projUserRef child:@"project1"];
+        
+        FIRDatabaseReference *projLocaRef = [proj1Ref child:@"projectLocationDetails"];
         
         [projLocaRef setValue:newProjData];
         

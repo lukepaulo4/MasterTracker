@@ -143,7 +143,7 @@
                                           @"projectEnd": projEndString,
                                           @"contractAmount": contractAmtString};
         
-        NSDictionary *projUpdates = @{[NSString stringWithFormat:@"/projects/%@/contractData/", self.projectUser]: newContractData};
+        NSDictionary *projUpdates = @{[NSString stringWithFormat:@"/projects/%@/project1/contractData/", self.projectUser]: newContractData};
         
         NSLog(@"Weird looking projUpdates with path/key: %@", projUpdates);
         
