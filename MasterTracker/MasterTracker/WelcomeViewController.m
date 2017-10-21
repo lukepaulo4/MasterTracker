@@ -33,18 +33,6 @@
 }
 
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    [super viewWillAppear:animated];
-//    // [START auth_listener]
-//    self.handle = [[FIRAuth auth]
-//                   addAuthStateDidChangeListener:^(FIRAuth *_Nonnull auth, FIRUser *_Nullable user) {
-//                       // [START_EXCLUDE]
-//                       [self setTitleDisplay:user];
-//                       [self.tableView reloadData];
-//                       // [END_EXCLUDE]
-//                   }];
-//    // [END auth_listener]
-//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

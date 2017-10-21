@@ -309,7 +309,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LRn-z5-zpB" id="1Sf-c3-YN2">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -557,6 +557,7 @@
                                 </state>
                                 <connections>
                                     <action selector="saveButtonPressed:" destination="17L-uG-nfj" eventType="touchUpInside" id="TGS-zT-xoX"/>
+                                    <segue destination="nR8-3z-vqF" kind="show" id="jE6-2Q-SpT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -586,6 +587,34 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2560.8000000000002" y="138.98050974512745"/>
+        </scene>
+        <!--Log Select Table View Controller-->
+        <scene sceneID="6Jr-Qf-hlx">
+            <objects>
+                <tableViewController id="nR8-3z-vqF" customClass="LogSelectTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="63y-UR-ff1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Log Cell Identifier" id="0rY-ch-iMp">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0rY-ch-iMp" id="Y8g-f0-9Dl">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nR8-3z-vqF" id="9yb-WZ-fgr"/>
+                            <outlet property="delegate" destination="nR8-3z-vqF" id="skE-mf-AxF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPD-Q4-3Bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3321" y="139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

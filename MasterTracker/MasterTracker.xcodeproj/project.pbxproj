@@ -18,7 +18,6 @@
 		009D67B41F5D94D3005378BD /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 009D67B31F5D94D3005378BD /* DataSource.m */; };
 		00A862CA1F3FB73C008B81FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862C91F3FB73C008B81FF /* main.m */; };
 		00A862CD1F3FB73C008B81FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862CC1F3FB73C008B81FF /* AppDelegate.m */; };
-		00A862D01F3FB73C008B81FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862CF1F3FB73C008B81FF /* ViewController.m */; };
 		00A862D31F3FB73C008B81FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A862D11F3FB73C008B81FF /* Main.storyboard */; };
 		00A862D51F3FB73C008B81FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00A862D41F3FB73C008B81FF /* Assets.xcassets */; };
 		00A862D81F3FB73C008B81FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */; };
@@ -28,6 +27,7 @@
 		00CAD7961F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00CAD7971F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00CAD7981F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
+		00D267351F9AEE1100EA61AC /* LogSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */; };
 		DB538A42DDD655166E8AABDE /* libPods-MasterTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */; };
 /* End PBXBuildFile section */
 
@@ -72,8 +72,6 @@
 		00A862C91F3FB73C008B81FF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00A862CB1F3FB73C008B81FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		00A862CC1F3FB73C008B81FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		00A862CE1F3FB73C008B81FF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		00A862CF1F3FB73C008B81FF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		00A862D21F3FB73C008B81FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00A862D41F3FB73C008B81FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00A862D71F3FB73C008B81FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,6 +85,8 @@
 		00C76E9F1F70E3E900E68672 /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
 		00C76EA01F70E3E900E68672 /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
 		00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		00D267331F9AEE1000EA61AC /* LogSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogSelectTableViewController.h; sourceTree = "<group>"; };
+		00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogSelectTableViewController.m; sourceTree = "<group>"; };
 		8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.release.xcconfig"; sourceTree = "<group>"; };
 		BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MasterTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC64157B8049135B4182123 /* Pods-MasterTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -156,26 +156,19 @@
 		00A862C71F3FB73C008B81FF /* MasterTracker */ = {
 			isa = PBXGroup;
 			children = (
+				00D267361F9AEE4200EA61AC /* Login Stuff */,
 				009D67AE1F5D947B005378BD /* Objects & DataSource */,
 				00244C211F4809EE00182ED3 /* MasterTracker.entitlements */,
-				003FEBA71F40DEA6006B3BA9 /* EmailSetupViewController.h */,
-				003FEBA81F40DEA6006B3BA9 /* EmailSetupViewController.m */,
-				003FEBAA1F40DEE1006B3BA9 /* PasswordSetupViewController.h */,
-				003FEBAB1F40DEE1006B3BA9 /* PasswordSetupViewController.m */,
-				003FEBAD1F40DEFB006B3BA9 /* ExistingAccountViewController.h */,
-				003FEBAE1F40DEFB006B3BA9 /* ExistingAccountViewController.m */,
-				003FEBB01F40DF0F006B3BA9 /* ForgotPasswordViewController.h */,
-				003FEBB11F40DF10006B3BA9 /* ForgotPasswordViewController.m */,
 				003FEBB31F45452C006B3BA9 /* WelcomeViewController.h */,
 				003FEBB41F45452C006B3BA9 /* WelcomeViewController.m */,
 				003FEBB61F454545006B3BA9 /* ProjectSetupViewController.h */,
 				003FEBB71F454545006B3BA9 /* ProjectSetupViewController.m */,
 				003FEBB91F45455E006B3BA9 /* ProjectAdditionalInfoViewController.h */,
 				003FEBBA1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m */,
+				00D267331F9AEE1000EA61AC /* LogSelectTableViewController.h */,
+				00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */,
 				00A862CB1F3FB73C008B81FF /* AppDelegate.h */,
 				00A862CC1F3FB73C008B81FF /* AppDelegate.m */,
-				00A862CE1F3FB73C008B81FF /* ViewController.h */,
-				00A862CF1F3FB73C008B81FF /* ViewController.m */,
 				00A862D11F3FB73C008B81FF /* Main.storyboard */,
 				00A862D41F3FB73C008B81FF /* Assets.xcassets */,
 				00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */,
@@ -210,6 +203,21 @@
 				00A862EF1F3FB73C008B81FF /* Info.plist */,
 			);
 			path = MasterTrackerUITests;
+			sourceTree = "<group>";
+		};
+		00D267361F9AEE4200EA61AC /* Login Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				003FEBA71F40DEA6006B3BA9 /* EmailSetupViewController.h */,
+				003FEBA81F40DEA6006B3BA9 /* EmailSetupViewController.m */,
+				003FEBAA1F40DEE1006B3BA9 /* PasswordSetupViewController.h */,
+				003FEBAB1F40DEE1006B3BA9 /* PasswordSetupViewController.m */,
+				003FEBAD1F40DEFB006B3BA9 /* ExistingAccountViewController.h */,
+				003FEBAE1F40DEFB006B3BA9 /* ExistingAccountViewController.m */,
+				003FEBB01F40DF0F006B3BA9 /* ForgotPasswordViewController.h */,
+				003FEBB11F40DF10006B3BA9 /* ForgotPasswordViewController.m */,
+			);
+			name = "Login Stuff";
 			sourceTree = "<group>";
 		};
 		5DE4479442435059866CEC43 /* Frameworks */ = {
@@ -438,7 +446,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00A862D01F3FB73C008B81FF /* ViewController.m in Sources */,
 				003FEBB81F454545006B3BA9 /* ProjectSetupViewController.m in Sources */,
 				009D67B41F5D94D3005378BD /* DataSource.m in Sources */,
 				003FEBA91F40DEA6006B3BA9 /* EmailSetupViewController.m in Sources */,
@@ -446,6 +453,7 @@
 				00A862CA1F3FB73C008B81FF /* main.m in Sources */,
 				003FEBBB1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m in Sources */,
 				009D67B11F5D94C1005378BD /* User.m in Sources */,
+				00D267351F9AEE1100EA61AC /* LogSelectTableViewController.m in Sources */,
 				003FEBB21F40DF10006B3BA9 /* ForgotPasswordViewController.m in Sources */,
 				003FEBB51F45452C006B3BA9 /* WelcomeViewController.m in Sources */,
 				003FEBAC1F40DEE1006B3BA9 /* PasswordSetupViewController.m in Sources */,
