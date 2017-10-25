@@ -28,6 +28,7 @@
 		00CAD7971F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00CAD7981F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00D267351F9AEE1100EA61AC /* LogSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */; };
+		00F26C611FA04E7700E270B2 /* MyItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F26C601FA04E7700E270B2 /* MyItems.m */; };
 		DB538A42DDD655166E8AABDE /* libPods-MasterTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,8 @@
 		00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00D267331F9AEE1000EA61AC /* LogSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogSelectTableViewController.h; sourceTree = "<group>"; };
 		00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogSelectTableViewController.m; sourceTree = "<group>"; };
+		00F26C5F1FA04E7700E270B2 /* MyItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyItems.h; sourceTree = "<group>"; };
+		00F26C601FA04E7700E270B2 /* MyItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyItems.m; sourceTree = "<group>"; };
 		8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.release.xcconfig"; sourceTree = "<group>"; };
 		BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MasterTracker.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC64157B8049135B4182123 /* Pods-MasterTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 				00C76EA01F70E3E900E68672 /* AppState.m */,
 				009D67AF1F5D94C1005378BD /* User.h */,
 				009D67B01F5D94C1005378BD /* User.m */,
+				00F26C5F1FA04E7700E270B2 /* MyItems.h */,
+				00F26C601FA04E7700E270B2 /* MyItems.m */,
 				009D67B21F5D94D3005378BD /* DataSource.h */,
 				009D67B31F5D94D3005378BD /* DataSource.m */,
 			);
@@ -448,6 +453,7 @@
 			files = (
 				003FEBB81F454545006B3BA9 /* ProjectSetupViewController.m in Sources */,
 				009D67B41F5D94D3005378BD /* DataSource.m in Sources */,
+				00F26C611FA04E7700E270B2 /* MyItems.m in Sources */,
 				003FEBA91F40DEA6006B3BA9 /* EmailSetupViewController.m in Sources */,
 				00A862CD1F3FB73C008B81FF /* AppDelegate.m in Sources */,
 				00A862CA1F3FB73C008B81FF /* main.m in Sources */,
