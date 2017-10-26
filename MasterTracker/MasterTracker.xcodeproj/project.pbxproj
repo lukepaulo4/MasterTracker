@@ -28,6 +28,9 @@
 		00CAD7971F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00CAD7981F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00D267351F9AEE1100EA61AC /* LogSelectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */; };
+		00EEE2FD1FA13A350008D3D9 /* ProcurementLogTVControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEE2FC1FA13A350008D3D9 /* ProcurementLogTVControllerTableViewController.m */; };
+		00EEE3001FA13A690008D3D9 /* ProcurementItemTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEE2FF1FA13A690008D3D9 /* ProcurementItemTVCell.m */; };
+		00EEE3031FA13A9E0008D3D9 /* ProcurementItemFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EEE3021FA13A9E0008D3D9 /* ProcurementItemFullScreenViewController.m */; };
 		00F26C611FA04E7700E270B2 /* MyItems.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F26C601FA04E7700E270B2 /* MyItems.m */; };
 		DB538A42DDD655166E8AABDE /* libPods-MasterTracker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCBF7CC10B535B56B82B2D60 /* libPods-MasterTracker.a */; };
 /* End PBXBuildFile section */
@@ -88,6 +91,12 @@
 		00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		00D267331F9AEE1000EA61AC /* LogSelectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogSelectTableViewController.h; sourceTree = "<group>"; };
 		00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogSelectTableViewController.m; sourceTree = "<group>"; };
+		00EEE2FB1FA13A350008D3D9 /* ProcurementLogTVControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcurementLogTVControllerTableViewController.h; sourceTree = "<group>"; };
+		00EEE2FC1FA13A350008D3D9 /* ProcurementLogTVControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcurementLogTVControllerTableViewController.m; sourceTree = "<group>"; };
+		00EEE2FE1FA13A690008D3D9 /* ProcurementItemTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcurementItemTVCell.h; sourceTree = "<group>"; };
+		00EEE2FF1FA13A690008D3D9 /* ProcurementItemTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcurementItemTVCell.m; sourceTree = "<group>"; };
+		00EEE3011FA13A9E0008D3D9 /* ProcurementItemFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcurementItemFullScreenViewController.h; sourceTree = "<group>"; };
+		00EEE3021FA13A9E0008D3D9 /* ProcurementItemFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcurementItemFullScreenViewController.m; sourceTree = "<group>"; };
 		00F26C5F1FA04E7700E270B2 /* MyItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyItems.h; sourceTree = "<group>"; };
 		00F26C601FA04E7700E270B2 /* MyItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyItems.m; sourceTree = "<group>"; };
 		8305418B8B82F283368E6B8F /* Pods-MasterTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MasterTracker.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MasterTracker/Pods-MasterTracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +133,8 @@
 		009D67AE1F5D947B005378BD /* Objects & DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				00A862CB1F3FB73C008B81FF /* AppDelegate.h */,
+				00A862CC1F3FB73C008B81FF /* AppDelegate.m */,
 				00C76E9F1F70E3E900E68672 /* AppState.h */,
 				00C76EA01F70E3E900E68672 /* AppState.m */,
 				009D67AF1F5D94C1005378BD /* User.h */,
@@ -161,6 +172,7 @@
 		00A862C71F3FB73C008B81FF /* MasterTracker */ = {
 			isa = PBXGroup;
 			children = (
+				00EEE2FA1FA136800008D3D9 /* Procurement Items */,
 				00D267361F9AEE4200EA61AC /* Login Stuff */,
 				009D67AE1F5D947B005378BD /* Objects & DataSource */,
 				00244C211F4809EE00182ED3 /* MasterTracker.entitlements */,
@@ -172,8 +184,6 @@
 				003FEBBA1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m */,
 				00D267331F9AEE1000EA61AC /* LogSelectTableViewController.h */,
 				00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */,
-				00A862CB1F3FB73C008B81FF /* AppDelegate.h */,
-				00A862CC1F3FB73C008B81FF /* AppDelegate.m */,
 				00A862D11F3FB73C008B81FF /* Main.storyboard */,
 				00A862D41F3FB73C008B81FF /* Assets.xcassets */,
 				00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */,
@@ -223,6 +233,19 @@
 				003FEBB11F40DF10006B3BA9 /* ForgotPasswordViewController.m */,
 			);
 			name = "Login Stuff";
+			sourceTree = "<group>";
+		};
+		00EEE2FA1FA136800008D3D9 /* Procurement Items */ = {
+			isa = PBXGroup;
+			children = (
+				00EEE2FB1FA13A350008D3D9 /* ProcurementLogTVControllerTableViewController.h */,
+				00EEE2FC1FA13A350008D3D9 /* ProcurementLogTVControllerTableViewController.m */,
+				00EEE2FE1FA13A690008D3D9 /* ProcurementItemTVCell.h */,
+				00EEE2FF1FA13A690008D3D9 /* ProcurementItemTVCell.m */,
+				00EEE3011FA13A9E0008D3D9 /* ProcurementItemFullScreenViewController.h */,
+				00EEE3021FA13A9E0008D3D9 /* ProcurementItemFullScreenViewController.m */,
+			);
+			name = "Procurement Items";
 			sourceTree = "<group>";
 		};
 		5DE4479442435059866CEC43 /* Frameworks */ = {
@@ -457,14 +480,17 @@
 				003FEBA91F40DEA6006B3BA9 /* EmailSetupViewController.m in Sources */,
 				00A862CD1F3FB73C008B81FF /* AppDelegate.m in Sources */,
 				00A862CA1F3FB73C008B81FF /* main.m in Sources */,
+				00EEE3031FA13A9E0008D3D9 /* ProcurementItemFullScreenViewController.m in Sources */,
 				003FEBBB1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m in Sources */,
 				009D67B11F5D94C1005378BD /* User.m in Sources */,
 				00D267351F9AEE1100EA61AC /* LogSelectTableViewController.m in Sources */,
+				00EEE2FD1FA13A350008D3D9 /* ProcurementLogTVControllerTableViewController.m in Sources */,
 				003FEBB21F40DF10006B3BA9 /* ForgotPasswordViewController.m in Sources */,
 				003FEBB51F45452C006B3BA9 /* WelcomeViewController.m in Sources */,
 				003FEBAC1F40DEE1006B3BA9 /* PasswordSetupViewController.m in Sources */,
 				00C76EA11F70E3EA00E68672 /* AppState.m in Sources */,
 				003FEBAF1F40DEFB006B3BA9 /* ExistingAccountViewController.m in Sources */,
+				00EEE3001FA13A690008D3D9 /* ProcurementItemTVCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

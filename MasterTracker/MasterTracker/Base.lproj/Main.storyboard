@@ -611,10 +611,62 @@
                             <outlet property="delegate" destination="nR8-3z-vqF" id="skE-mf-AxF"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="KXr-mC-6rC" kind="show" identifier="procurementLogSegue" id="Obw-jh-rrB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPD-Q4-3Bu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3321" y="139"/>
+        </scene>
+        <!--Procurement LogTV Controller Table View Controller-->
+        <scene sceneID="aci-Qe-Fb5">
+            <objects>
+                <tableViewController id="KXr-mC-6rC" customClass="ProcurementLogTVControllerTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="8Zl-vZ-TA3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="procurementItemIdentifier" id="w0B-c4-idK" customClass="ProcurementItemTVCell">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w0B-c4-idK" id="Zsg-7s-PU0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KXr-mC-6rC" id="s7s-Gx-TC5"/>
+                            <outlet property="delegate" destination="KXr-mC-6rC" id="iur-8t-bfq"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <segue destination="sAl-B4-Mlf" kind="show" identifier="procurementItemFullScreenSegue" id="aDH-BL-U63"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SNi-aw-1xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4060" y="139"/>
+        </scene>
+        <!--Procurement Item Full Screen View Controller-->
+        <scene sceneID="8et-AU-jZK">
+            <objects>
+                <viewController id="sAl-B4-Mlf" customClass="ProcurementItemFullScreenViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sMh-o4-ctB"/>
+                        <viewControllerLayoutGuide type="bottom" id="M3Z-4g-abk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M6L-dc-bi3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h2Q-WF-hhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4852" y="139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
