@@ -30,7 +30,7 @@
     
     
     //set the array items here. To start we can have the procurement and submittal log. Eventually we can get to billing/projections/etc.
-    self.logOptions = [NSArray arrayWithObjects:@"Procuremnt Log",
+    self.logOptions = [NSArray arrayWithObjects:@"Procurement Log",
                        @"Submittal Log",
                        nil];
 }
@@ -126,7 +126,7 @@
         dispatch_async(dispatch_get_main_queue(),   ^{
             
             //This segue is not setup. Create one that goes to the log
-            [self performSegueWithIdentifier:@"procurementLogSegue" sender:self];
+            [self performSegueWithIdentifier:@"procurementLogSelectSegue" sender:self];
             
         });
         
@@ -139,6 +139,8 @@
         //            [self performSegueWithIdentifier:@"faqSegue" sender:self];
         
         //        });
+        
+        
         
         dispatch_async(dispatch_get_main_queue(),   ^{
             
