@@ -26,6 +26,7 @@
 - (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
+        self.descriptions = [NSMutableArray array];
         
     }
     return self;
@@ -33,6 +34,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //create fake things for the array to test/build out
+    self.descriptions = [NSMutableArray array];
+    
+    [self.descriptions addObject:@"equipment 1"];
+    [self.descriptions addObject:@"equipment 2"];
+    [self.descriptions addObject:@"equipment 3"];
+    [self.descriptions addObject:@"equipment 4"];
+    
+    //register the cell for this beezy
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"procurementItemIdentifier"];
+    
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -132,7 +147,9 @@
 //Need to present all of our descriptions as rows in this table
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //added this per 28
-    return [DataSource sharedInstance].myItems.count;
+    //return [DataSource sharedInstance].myItems.count;
+    
+    return self.descriptions.count;
 }
 
 
@@ -140,8 +157,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ProcurementItemTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"procurementItemIdentifier" forIndexPath:indexPath];
+    
     cell.delegate = self;
     cell.item = [DataSource sharedInstance].myItems[indexPath.row];
+     
+    
+    
     
     return cell;
 
@@ -164,10 +185,12 @@
 //height of cells when we scroll
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    
     //Added per 28
     MyItems *item = [DataSource sharedInstance].myItems[indexPath.row];
     
     return [ProcurementItemTVCell heightForItem:item width:CGRectGetWidth(self.view.frame)];
+     
 }
 
 

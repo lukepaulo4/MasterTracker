@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ExistingAccountViewController.h"
+#import "EmailSetupViewController.h"
 
 //need to initialize firebase
 // [START auth_import]
@@ -23,6 +24,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //Bloc says do this but it doesnt start with the screen I want. It's blank
+    //self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[EmailSetupViewController alloc] init]];
+    
+    //self.window.backgroundColor = [UIColor whiteColor];
+    //[self.window makeKeyAndVisible];
+    
     
     //initialize that which is FIREBASE! Use fb library to configure APIs
     [FIRApp configure];

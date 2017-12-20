@@ -98,7 +98,7 @@ static NSParagraphStyle *paragraphStyle;
                                                                                  attribute:NSLayoutAttributeNotAnAttribute
                                                                                 multiplier:1
                                                                                   constant:100];
-        self.equipDescLabelHeightConstraint.identifier = @"Item description label height constraint";
+        self.equipDescLabelHeightConstraint.identifier = @"Equip desc label height constraint";
         
         self.equipTagLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_equipTagLabel
                                                                              attribute:NSLayoutAttributeHeight
@@ -107,7 +107,7 @@ static NSParagraphStyle *paragraphStyle;
                                                                              attribute:NSLayoutAttributeNotAnAttribute
                                                                             multiplier:1
                                                                               constant:100];
-        self.equipTagLabelHeightConstraint.identifier = @"Loan desired label height constraint";
+        self.equipTagLabelHeightConstraint.identifier = @"Equip tag label height constraint";
         
         [self.contentView addConstraints:@[self.equipDescLabelHeightConstraint, self.equipTagLabelHeightConstraint]];
         
