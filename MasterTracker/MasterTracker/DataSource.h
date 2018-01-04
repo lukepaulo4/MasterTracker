@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-# import "AppDelegate.h"
+#import "AppDelegate.h"
 #import <UIKit/UIKit.h>
 
 @class MyItems;
@@ -19,7 +19,7 @@ typedef void (^NewItemCompletionBlockPTR)(NSError *error);
 
 +(instancetype) sharedInstance;
 
-//Create array to store our array of my procurement items for the my items table VC
+//Create array to store our array of my procurement items for the my items table VC. Read only disallows other classes from modifying these property
 @property (nonatomic, strong, readonly) NSArray *myItems;
 
 //create property to store the access token

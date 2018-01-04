@@ -6,6 +6,9 @@
 //  Copyright © 2017 lpinc. All rights reserved.
 //
 
+//if you ever need to recognize UIImage than import
+//#import <UIKit/UIKit.h>
+
 #import <Foundation/Foundation.h>
 #import "DataSource.h"
 

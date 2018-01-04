@@ -23,6 +23,7 @@
 		00A862D81F3FB73C008B81FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */; };
 		00A862E31F3FB73C008B81FF /* MasterTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862E21F3FB73C008B81FF /* MasterTrackerTests.m */; };
 		00A862EE1F3FB73C008B81FF /* MasterTrackerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A862ED1F3FB73C008B81FF /* MasterTrackerUITests.m */; };
+		00AAD87A1FFDAE6F00611829 /* MyProjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AAD8791FFDAE6F00611829 /* MyProjects.m */; };
 		00C76EA11F70E3EA00E68672 /* AppState.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C76EA01F70E3E900E68672 /* AppState.m */; };
 		00CAD7961F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
 		00CAD7971F47F8A500090C7F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */; };
@@ -86,6 +87,8 @@
 		00A862E91F3FB73C008B81FF /* MasterTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MasterTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A862ED1F3FB73C008B81FF /* MasterTrackerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterTrackerUITests.m; sourceTree = "<group>"; };
 		00A862EF1F3FB73C008B81FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00AAD8781FFDAE6F00611829 /* MyProjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProjects.h; sourceTree = "<group>"; };
+		00AAD8791FFDAE6F00611829 /* MyProjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProjects.m; sourceTree = "<group>"; };
 		00C76E9F1F70E3E900E68672 /* AppState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppState.h; sourceTree = "<group>"; };
 		00C76EA01F70E3E900E68672 /* AppState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppState.m; sourceTree = "<group>"; };
 		00CAD7951F47F8A500090C7F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				009D67B01F5D94C1005378BD /* User.m */,
 				00F26C5F1FA04E7700E270B2 /* MyItems.h */,
 				00F26C601FA04E7700E270B2 /* MyItems.m */,
+				00AAD8781FFDAE6F00611829 /* MyProjects.h */,
+				00AAD8791FFDAE6F00611829 /* MyProjects.m */,
 				009D67B21F5D94D3005378BD /* DataSource.h */,
 				009D67B31F5D94D3005378BD /* DataSource.m */,
 			);
@@ -172,18 +177,11 @@
 		00A862C71F3FB73C008B81FF /* MasterTracker */ = {
 			isa = PBXGroup;
 			children = (
+				00AAD87B1FFDE24F00611829 /* Project Setup */,
 				00EEE2FA1FA136800008D3D9 /* Procurement Items */,
 				00D267361F9AEE4200EA61AC /* Login Stuff */,
 				009D67AE1F5D947B005378BD /* Objects & DataSource */,
 				00244C211F4809EE00182ED3 /* MasterTracker.entitlements */,
-				003FEBB31F45452C006B3BA9 /* WelcomeViewController.h */,
-				003FEBB41F45452C006B3BA9 /* WelcomeViewController.m */,
-				003FEBB61F454545006B3BA9 /* ProjectSetupViewController.h */,
-				003FEBB71F454545006B3BA9 /* ProjectSetupViewController.m */,
-				003FEBB91F45455E006B3BA9 /* ProjectAdditionalInfoViewController.h */,
-				003FEBBA1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m */,
-				00D267331F9AEE1000EA61AC /* LogSelectTableViewController.h */,
-				00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */,
 				00A862D11F3FB73C008B81FF /* Main.storyboard */,
 				00A862D41F3FB73C008B81FF /* Assets.xcassets */,
 				00A862D61F3FB73C008B81FF /* LaunchScreen.storyboard */,
@@ -218,6 +216,21 @@
 				00A862EF1F3FB73C008B81FF /* Info.plist */,
 			);
 			path = MasterTrackerUITests;
+			sourceTree = "<group>";
+		};
+		00AAD87B1FFDE24F00611829 /* Project Setup */ = {
+			isa = PBXGroup;
+			children = (
+				003FEBB31F45452C006B3BA9 /* WelcomeViewController.h */,
+				003FEBB41F45452C006B3BA9 /* WelcomeViewController.m */,
+				003FEBB61F454545006B3BA9 /* ProjectSetupViewController.h */,
+				003FEBB71F454545006B3BA9 /* ProjectSetupViewController.m */,
+				003FEBB91F45455E006B3BA9 /* ProjectAdditionalInfoViewController.h */,
+				003FEBBA1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m */,
+				00D267331F9AEE1000EA61AC /* LogSelectTableViewController.h */,
+				00D267341F9AEE1000EA61AC /* LogSelectTableViewController.m */,
+			);
+			name = "Project Setup";
 			sourceTree = "<group>";
 		};
 		00D267361F9AEE4200EA61AC /* Login Stuff */ = {
@@ -479,6 +492,7 @@
 				00F26C611FA04E7700E270B2 /* MyItems.m in Sources */,
 				003FEBA91F40DEA6006B3BA9 /* EmailSetupViewController.m in Sources */,
 				00A862CD1F3FB73C008B81FF /* AppDelegate.m in Sources */,
+				00AAD87A1FFDAE6F00611829 /* MyProjects.m in Sources */,
 				00A862CA1F3FB73C008B81FF /* main.m in Sources */,
 				00EEE3031FA13A9E0008D3D9 /* ProcurementItemFullScreenViewController.m in Sources */,
 				003FEBBB1F45455E006B3BA9 /* ProjectAdditionalInfoViewController.m in Sources */,

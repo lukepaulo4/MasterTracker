@@ -9,6 +9,7 @@
 #import "DataSource.h"
 #import "User.h"
 #import "MyItems.h"
+#import "MyProjects.h"
 #import "EmailSetupViewController.h"
 #import <UICKeyChainStore.h>
 
@@ -73,7 +74,18 @@
 
 
 
+
+
 //This is going to create random values for the my items. can reconfigure once you have the data drawing from it
+
+- (instancetype) init {
+    self = [super init];
+    
+    if (self) {
+        [self addRandomData];
+    }
+    return self;
+}
 
 - (void) addRandomData {
     NSMutableArray *randomItems = [NSMutableArray array];
