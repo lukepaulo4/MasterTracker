@@ -13,6 +13,8 @@
 @interface ProcurementItemTVCell () <UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UILabel *equipDescLabel;
+
+//for now let's just get the equipment description going. You've built out the TagLabel, but haven't done anything to place it in a subview. Come back later and insert it if desired.
 @property (nonatomic, strong) UILabel *equipTagLabel;
 
 @property (nonatomic, strong) NSLayoutConstraint *equipDescLabelHeightConstraint;
@@ -24,6 +26,7 @@
 
 
 // Added these when did the cell programmatically...
+//come back and add green, yellow, orange, red, and black backgrounds to signify how close the procurement cell is needed to be released.
 static UIFont *lightFont;
 static UIFont *boldFont;
 static UIColor *equipDescLabelGray;
@@ -33,13 +36,9 @@ static NSParagraphStyle *paragraphStyle;
 
 @implementation ProcurementItemTVCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
-
 
 //called once and only once per class. It's a class method and not a instance method, hence the + rather than the -
+//come back and add green, yellow, orange, red, and black backgrounds to signify how close the procurement cell is needed to be released. There is a full list of fonts link in the tab 29
 + (void)load {
     lightFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:11];
     boldFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
@@ -145,6 +144,8 @@ static NSParagraphStyle *paragraphStyle;
     // #3 - Make an attributed string, this sets it up with a bold string..
     NSMutableAttributedString *mutableEquipDescString = [[NSMutableAttributedString alloc] initWithString:baseString attributes:@{NSFontAttributeName : [boldFont fontWithSize:equipDescFontSize], NSParagraphStyleAttributeName : paragraphStyle}];
     
+    //oringally this had a range, as the label was the username and caption and they only wanted the username bold. However, our entire label will be the same size and font and color.
+    
     return mutableEquipDescString;
     
 }
@@ -169,6 +170,15 @@ static NSParagraphStyle *paragraphStyle;
 
 
 
+//this method will help us calculate the size of the attributed string
+- (CGSize) sizeOfString:(NSAttributedString *)string {
+    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.contentView.bounds) - 40, 0.0);
+    CGRect sizeRect = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    sizeRect.size.height += 20;
+    sizeRect = CGRectIntegral(sizeRect);
+    return sizeRect.size;
+}
+
 
 - (void) layoutSubviews {
     [super layoutSubviews];
@@ -177,15 +187,25 @@ static NSParagraphStyle *paragraphStyle;
         return;
     }
     
+    //This part is from Bloc. Utilizes the bottom of imageView (of which we don't have) as the top of the description label. Then the bottom of the desc label as the top of tagLabel. Would prefer the tagLabel on the same Y plane as the desc. The desc would be on the right. However, just going to try and use one label for now for ease of build, then progress and add the tag label at a later time.
+    //CGSize sizeOfEquipDescLabel = [self sizeOfString:self.equipDescLabel.attributedText];
+    //self.equipDescLabel.frame = CGRectMake(0, CGRectGetMaxY(self.mediaImageView.frame), CGRectGetWidth(self.contentView.bounds), sizeOfEquipDescLabel.height);
+    
+    //CGSize sizeOfEquipTagLabel = [self sizeOfString:self.equipTagLabel.attributedText];
+    //self.equipTagLabel.frame = CGRectMake(0, CGRectGetMaxY(self.equipDescLabel.frame), CGRectGetWidth(self.bounds), sizeOfEquipTagLabel.height);
+    
+    
+    
+    //This section utilizes code from the Hockd app
     // Before layout, calculate the intrinsic size of the labels (the size they "want" to be), and add 20 to the height for some vertical padding.
     CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
-    CGSize equipDescLabelSize = [self.equipDescLabel sizeThatFits:maxSize];
-    CGSize equipTagLabelSize = [self.equipTagLabel sizeThatFits:maxSize];
+    CGSize sizeOfEquipDescLabel = [self.equipDescLabel sizeThatFits:maxSize];
+    CGSize sizeOfEquipTagLabel = [self.equipTagLabel sizeThatFits:maxSize];
     
-    self.equipDescLabelHeightConstraint.constant = equipDescLabelSize.height + 20;
-    self.equipTagLabelHeightConstraint.constant = equipTagLabelSize.height + 20;
+    self.equipDescLabelHeightConstraint.constant = sizeOfEquipDescLabel.height + 20;
+    self.equipTagLabelHeightConstraint.constant = sizeOfEquipTagLabel.height + 20;
     
-    // Hide the line between cells.. If we want this line later we can remove this code snippet. However, the picture should be a clear indicator that the new cell starts
+    // Hide the line between cells.. If we want this line later we can remove this code snippet.
     self.separatorInset = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
 }
 
@@ -222,18 +242,6 @@ static NSParagraphStyle *paragraphStyle;
 
 
 
-/*
- - (NSString *) itemDescriptionString {
- NSString *baseString = [NSString stringWithFormat:@"%@", self.item.itemDescription];
- 
- return baseString;
- }
- - (NSString *) loanDesiredString {
- NSString *baseString = [NSString stringWithFormat:@"%@", self.item.loanDesired];
- 
- return baseString;
- }
- */
 
 
 
