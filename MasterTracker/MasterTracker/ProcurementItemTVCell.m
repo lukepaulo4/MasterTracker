@@ -210,7 +210,7 @@ static NSParagraphStyle *paragraphStyle;
 }
 
 
-//override auto-generated methods. We want to update the image and text labels whenever a new item is set
+//override auto-generated methods. We want to update the text labels whenever a new item is set
 - (void) setItem:(MyItems *)item {
     _item = item;
     self.equipDescLabel.attributedText = [self equipDescString];
@@ -222,18 +222,16 @@ static NSParagraphStyle *paragraphStyle;
 + (CGFloat) heightForItem:(MyItems *)item width:(CGFloat)width {
     
     //make a cell
-    ProcurementItemTVCell *layoutCell = [[ProcurementItemTVCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"procurementItemIdentifier"];
+    ProcurementItemTVCell *layoutCell = [[ProcurementItemTVCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"layoutCell"];
     
+    layoutCell.frame = CGRectMake(0, 0, width, CGFLOAT_MAX);
     
     layoutCell.item = item;
     
-    layoutCell.frame = CGRectMake(0, 0, width, CGRectGetHeight(layoutCell.frame));
-    
-    [layoutCell setNeedsLayout];
-    [layoutCell layoutIfNeeded];
+    [layoutCell layoutSubviews];
     
     // Get the actual height required for the cell
-    return CGRectGetMaxY(layoutCell.equipTagLabel.frame);
+    return CGRectGetMaxY(layoutCell.equipDescLabel.frame);
 }
 
 

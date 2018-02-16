@@ -36,8 +36,8 @@
 
     
     //register the cell for this beezy
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"procurementItemIdentifier"];
-    
+    [self.tableView registerClass:[ProcurementItemTVCell class] forCellReuseIdentifier:@"procurementCell"];
+
     
     
     
@@ -154,21 +154,9 @@
 //Required method and most important. Returns a prepped and ready UITableViewCell instance to the table view to display at a given location. This method is called every time a new row is about to appear on screen whether scrolling up or down.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"procurementItemIdentifier" forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"procurementItemIdentifier"];
-        
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        //don't think we need this, but it allows proportional resizing of the cell if the superview changes sizes
-        cell.autoresizingMask = UIViewAutoresizingNone;
-    }
-    
-    MyItems *item = [DataSource sharedInstance].myItems[indexPath.row];
-    cell.textLabel.text = item.equipDesc;
-    
+    ProcurementItemTVCell *cell = [tableView dequeueReusableCellWithIdentifier:@"procurementCell" forIndexPath:indexPath];
+    cell.item = [DataSource sharedInstance].myItems[indexPath.row];
+    //cell.textLabel.text = item.equipDesc;
     
     return cell;
 
@@ -191,10 +179,12 @@
 //height of cells when we scroll
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    //Added per 28 but it jsut creates an obnoxiously large cell. Hard type for now, revisit later
-    //MyItems *item = [DataSource sharedInstance].myItems[indexPath.row];
-    //return [ProcurementItemTVCell heightForItem:item / 20 width:CGRectGetWidth(self.view.frame)];
-    return 75;
+    //note that the table heights should be based off of the machine it is on (iphone/ipad) remember to check this later
+    return 100;
+    /*
+    MyItems *item = [DataSource sharedInstance].myItems[indexPath.row];
+    return [ProcurementItemTVCell heightForItem:item width:CGRectGetWidth(self.view.frame)];
+     */
 }
 
 
