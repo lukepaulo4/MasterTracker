@@ -181,10 +181,12 @@
     
     //note that the table heights should be based off of the machine it is on (iphone/ipad) remember to check this later
     return 100;
-    /*
-    MyItems *item = [DataSource sharedInstance].myItems[indexPath.row];
-    return [ProcurementItemTVCell heightForItem:item width:CGRectGetWidth(self.view.frame)];
-     */
+    
+    //this is supposedly what we supposed to do per unit 29, but the cells stack weird. double check layout subview since you changed it to suit no image view or second view (tag)
+    //MyItems *item = [DataSource sharedInstance].myItems[indexPath.row];
+    //return [ProcurementItemTVCell heightForItem:item width:CGRectGetWidth(self.view.frame)];
+    
+    
 }
 
 

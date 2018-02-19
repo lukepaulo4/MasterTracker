@@ -55,6 +55,7 @@ static NSParagraphStyle *paragraphStyle;
     paragraphStyle = mutableParagraphStyle;
 }
 
+//removed the tag subview stuff since trying to hold off on implementing now. revist/add later
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -68,23 +69,26 @@ static NSParagraphStyle *paragraphStyle;
         self.equipDescLabel.numberOfLines = 0;
         self.equipDescLabel.backgroundColor = equipDescLabelGray;
         
-        self.equipTagLabel = [[UILabel alloc] init];
-        self.equipTagLabel.numberOfLines = 0;
-        self.equipTagLabel.backgroundColor = equipTagLabelGray;
+        //remove this since we aren't adding the Tag subview yet
+        //self.equipTagLabel = [[UILabel alloc] init];
+        //self.equipTagLabel.numberOfLines = 0;
+        //self.equipTagLabel.backgroundColor = equipTagLabelGray;
         
-        for (UIView *view in @[self.equipDescLabel, self.equipTagLabel]) {
+        for (UIView *view in @[self.equipDescLabel/*, self.equipTagLabel*/]) {
             [self.contentView addSubview:view];
             
             view.translatesAutoresizingMaskIntoConstraints = NO;
         }
         
-        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_equipDescLabel, _equipTagLabel);
+        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_equipDescLabel/*, _equipTagLabel*/);
         
 
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_equipDescLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_equipTagLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_equipDescLabel][_equipTagLabel]"
+        //removing tag subview until further notice
+        //[self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_equipTagLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
+        
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_equipDescLabel]"   //[_equipTagLabel]"  NEED to delete two backslashes & the last " & will be good
                                                                                  options:kNilOptions
                                                                                  metrics:nil
                                                                                    views:viewDictionary]];
@@ -99,16 +103,16 @@ static NSParagraphStyle *paragraphStyle;
                                                                                   constant:100];
         self.equipDescLabelHeightConstraint.identifier = @"Equip desc label height constraint";
         
-        self.equipTagLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_equipTagLabel
-                                                                             attribute:NSLayoutAttributeHeight
-                                                                             relatedBy:NSLayoutRelationEqual
-                                                                                toItem:nil
-                                                                             attribute:NSLayoutAttributeNotAnAttribute
-                                                                            multiplier:1
-                                                                              constant:100];
-        self.equipTagLabelHeightConstraint.identifier = @"Equip tag label height constraint";
+        //self.equipTagLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_equipTagLabel
+                                                                             //attribute:NSLayoutAttributeHeight
+                                                                             //relatedBy:NSLayoutRelationEqual
+                                                                                //toItem:nil
+                                                                             //attribute:NSLayoutAttributeNotAnAttribute
+                                                                            //multiplier:1
+                                                                              //constant:100];
+        //self.equipTagLabelHeightConstraint.identifier = @"Equip tag label height constraint";
         
-        [self.contentView addConstraints:@[self.equipDescLabelHeightConstraint, self.equipTagLabelHeightConstraint]];
+        [self.contentView addConstraints:@[self.equipDescLabelHeightConstraint/*, self.equipTagLabelHeightConstraint*/]];
         
         
     }
@@ -152,7 +156,7 @@ static NSParagraphStyle *paragraphStyle;
 
 
 
-//Life to the Posted Loan Value string...
+
 - (NSAttributedString *) equipTagString {
     
     // #1 - font size equal to itemDescription font size
@@ -187,26 +191,18 @@ static NSParagraphStyle *paragraphStyle;
         return;
     }
     
-    //This part is from Bloc. Utilizes the bottom of imageView (of which we don't have) as the top of the description label. Then the bottom of the desc label as the top of tagLabel. Would prefer the tagLabel on the same Y plane as the desc. The desc would be on the right. However, just going to try and use one label for now for ease of build, then progress and add the tag label at a later time.
-    //CGSize sizeOfEquipDescLabel = [self sizeOfString:self.equipDescLabel.attributedText];
-    //self.equipDescLabel.frame = CGRectMake(0, CGRectGetMaxY(self.mediaImageView.frame), CGRectGetWidth(self.contentView.bounds), sizeOfEquipDescLabel.height);
+    
+    //try this one
+    CGSize sizeOfEquipDescLabel = [self sizeOfString:self.equipDescLabel.attributedText];
+    self.equipDescLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), sizeOfEquipDescLabel.height);
     
     //CGSize sizeOfEquipTagLabel = [self sizeOfString:self.equipTagLabel.attributedText];
     //self.equipTagLabel.frame = CGRectMake(0, CGRectGetMaxY(self.equipDescLabel.frame), CGRectGetWidth(self.bounds), sizeOfEquipTagLabel.height);
     
     
-    
-    //This section utilizes code from the Hockd app
-    // Before layout, calculate the intrinsic size of the labels (the size they "want" to be), and add 20 to the height for some vertical padding.
-    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
-    CGSize sizeOfEquipDescLabel = [self.equipDescLabel sizeThatFits:maxSize];
-    CGSize sizeOfEquipTagLabel = [self.equipTagLabel sizeThatFits:maxSize];
-    
-    self.equipDescLabelHeightConstraint.constant = sizeOfEquipDescLabel.height + 20;
-    self.equipTagLabelHeightConstraint.constant = sizeOfEquipTagLabel.height + 20;
-    
-    // Hide the line between cells.. If we want this line later we can remove this code snippet.
-    self.separatorInset = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
+    //Hide the line between cells.. If we want this line later we can remove this code snippet.
+    //UNCOMMENT TO HIDE LINE
+    //self.separatorInset = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
 }
 
 
@@ -230,7 +226,7 @@ static NSParagraphStyle *paragraphStyle;
     
     [layoutCell layoutSubviews];
     
-    // Get the actual height required for the cell
+    //Height will be wherever the bottom of the desc label is
     return CGRectGetMaxY(layoutCell.equipDescLabel.frame);
 }
 
