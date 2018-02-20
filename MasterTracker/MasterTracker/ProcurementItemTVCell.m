@@ -174,15 +174,6 @@ static NSParagraphStyle *paragraphStyle;
 
 
 
-//this method will help us calculate the size of the attributed string
-- (CGSize) sizeOfString:(NSAttributedString *)string {
-    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.contentView.bounds) - 40, 0.0);
-    CGRect sizeRect = [string boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-    sizeRect.size.height += 20;
-    sizeRect = CGRectIntegral(sizeRect);
-    return sizeRect.size;
-}
-
 
 - (void) layoutSubviews {
     [super layoutSubviews];
@@ -191,18 +182,16 @@ static NSParagraphStyle *paragraphStyle;
         return;
     }
     
+    CGSize maxSize = CGSizeMake(CGRectGetWidth(self.bounds), CGFLOAT_MAX);
+    CGSize equipDescLabelSize = [self.equipDescLabel sizeThatFits:maxSize];
     
-    //try this one
-    CGSize sizeOfEquipDescLabel = [self sizeOfString:self.equipDescLabel.attributedText];
-    self.equipDescLabel.frame = CGRectMake(0, 0, CGRectGetWidth(self.contentView.bounds), sizeOfEquipDescLabel.height);
+    self.equipDescLabelHeightConstraint.constant = equipDescLabelSize.height + 20;
     
-    //CGSize sizeOfEquipTagLabel = [self sizeOfString:self.equipTagLabel.attributedText];
-    //self.equipTagLabel.frame = CGRectMake(0, CGRectGetMaxY(self.equipDescLabel.frame), CGRectGetWidth(self.bounds), sizeOfEquipTagLabel.height);
     
     
     //Hide the line between cells.. If we want this line later we can remove this code snippet.
     //UNCOMMENT TO HIDE LINE
-    //self.separatorInset = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
+    self.separatorInset = UIEdgeInsetsMake(0, CGRectGetWidth(self.bounds)/2.0, 0, CGRectGetWidth(self.bounds)/2.0);
 }
 
 
@@ -220,11 +209,12 @@ static NSParagraphStyle *paragraphStyle;
     //make a cell
     ProcurementItemTVCell *layoutCell = [[ProcurementItemTVCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"layoutCell"];
     
-    layoutCell.frame = CGRectMake(0, 0, width, CGFLOAT_MAX);
-    
     layoutCell.item = item;
     
-    [layoutCell layoutSubviews];
+    layoutCell.frame = CGRectMake(0, 0, width, CGRectGetHeight(layoutCell.frame));
+    
+    [layoutCell setNeedsLayout];
+    [layoutCell layoutIfNeeded];
     
     //Height will be wherever the bottom of the desc label is
     return CGRectGetMaxY(layoutCell.equipDescLabel.frame);

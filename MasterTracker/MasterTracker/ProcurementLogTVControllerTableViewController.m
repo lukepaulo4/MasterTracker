@@ -34,14 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [[DataSource sharedInstance] addObserver:self forKeyPath:@"myItems" options:0 context:nil];
     
     //register the cell for this beezy
     [self.tableView registerClass:[ProcurementItemTVCell class] forCellReuseIdentifier:@"procurementCell"];
 
-    
-    
-    
-    
     
     
     /*
@@ -68,13 +65,13 @@
 }
 
 
-/*
+
 //method for above refreshControlDidFire
-- (void) refreshControlDidFire:(UIRefreshControl *) sender {
-    [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
-        [sender endRefreshing];
-    }];
-}
+//- (void) refreshControlDidFire:(UIRefreshControl *) sender {
+//    [[DataSource sharedInstance] requestNewItemsWithCompletionHandler:^(NSError *error) {
+//       [sender endRefreshing];
+//    }];
+//}
 
 
 //observers must be removed when they're no longer needed. dealloc method best place to do this
@@ -108,7 +105,7 @@
             NSMutableArray *indexPathsThatChanged = [NSMutableArray array];
             [indexSetOfChanges enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
                 NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-                [indexPathsThatChanged addObject:newIndexPath];
+               [indexPathsThatChanged addObject:newIndexPath];
             }];
             
             // #2 - Call `beginUpdates` to tell the table view we're about to make changes
@@ -129,7 +126,7 @@
         
     }
 }
-*/
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -220,17 +217,19 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        MyItems *item = [DataSource sharedInstance].myItems[indexPath.row];
+        [[DataSource sharedInstance] deleteMyItem:item];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

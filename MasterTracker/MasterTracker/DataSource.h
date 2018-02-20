@@ -28,7 +28,7 @@ typedef void (^NewItemCompletionBlockPTR)(NSError *error);
 //method for table view to call when user executes a pull-to-refresh gesture. Asynchronous so require the caller pass a version of our completion handler
 - (void) requestNewItemsWithCompletionHandler:(NewItemCompletionBlockPTR)completionHandler;
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletionBlockPTR)completionHandler;
-
+- (void) deleteMyItem:(MyItems *)item;
 
 
 @end

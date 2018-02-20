@@ -72,7 +72,10 @@
 //DO I need to register for access token notification?
 
 
-
+- (void) deleteMyItem:(MyItems *)item {
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"myItems"];
+    [mutableArrayWithKVO removeObject:item];
+}
 
 
 
